@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # TemuCipayung - Direktori Digital UMKM Setu Cipayung
 
 Selamat datang di TemuCipayung, sebuah prototipe *front-end* untuk website direktori digital yang didedikasikan untuk Usaha Mikro, Kecil, dan Menengah (UMKM) di area Kelurahan Setu, Kecamatan Cipayung, Jakarta Timur. Proyek ini bertujuan memudahkan warga dan pengunjung menemukan serta mendukung bisnis-bisnis lokal yang luar biasa di lingkungan sekitar.
@@ -85,3 +86,6 @@ Ikuti langkah-langkah berikut untuk menjalankan proyek ini di komputer lokal And
 6.  **Data:** Komponen atau halaman akan meng-import data dari `src/data/umkm.ts` untuk ditampilkan.
 7.  **Styling:** Style diterapkan melalui kelas-kelas Tailwind CSS yang didefinisikan di `tailwind.config.js` dan dimuat via `globals.css`.
 8.  **Aset Statis:** Gambar yang dirujuk dengan path `/images/...` akan diambil dari folder `public/images/`.
+=======
+# UMKM-Cipayung
+>>>>>>> 283175b319089f4e8156aa45d78f46af38054de6
