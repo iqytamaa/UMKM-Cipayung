@@ -4,6 +4,8 @@ import { useState } from "react"
 // Tambahkan import Link dari Next.js
 import Link from "next/link"
 import { ChevronRight, ChevronLeft, Upload, CheckCircle2, AlertCircle } from "lucide-react"
+import CustomPointer from "@/app/components/CustomPointer"
+
 
 // 1. Definisikan tipe untuk state formData
 interface FormDataState {
@@ -206,6 +208,7 @@ export default function PanduanDaftarPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 py-12 px-4 sm:px-6 lg:px-8">
+      <CustomPointer />
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
@@ -555,42 +558,49 @@ export default function PanduanDaftarPage() {
           )}
 
           {/* Navigation Buttons */}
-          <div className="flex justify-between items-center mt-12 pt-8 border-t border-gray-200">
-            <button
-              onClick={handlePrevious}
-              disabled={currentStep === 1}
-              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
-                currentStep === 1
-                  ? "text-gray-400 cursor-not-allowed"
-                  : "text-blue-600 hover:bg-blue-50 active:scale-95"
-              }`}
-            >
-              <ChevronLeft className="w-5 h-5" />
-              Sebelumnya
-            </button>
+          {/* Navigation Buttons */}
+<div className="flex justify-between items-center mt-12 pt-8 border-t border-gray-200">
+  <button
+    onClick={handlePrevious}
+    disabled={currentStep === 1}
+    // MODIFIKASI: Padding diubah menjadi px-4 di mobile, sm:px-6 di desktop
+    className={`flex items-center gap-2 px-4 sm:px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+      currentStep === 1
+        ? "text-gray-400 cursor-not-allowed"
+        : "text-blue-600 hover:bg-blue-50 active:scale-95"
+    }`}
+  >
+    <ChevronLeft className="w-5 h-5" />
+        {/* MODIFIKASI: Teks dibungkus span dan disembunyikan di mobile */}
+        <span className="hidden sm:inline">Sebelumnya</span>
+      </button>
 
-            <div className="text-sm text-gray-600">
-              Langkah {currentStep} dari {steps.length}
-            </div>
+      <div className="text-sm text-gray-600 text-center flex-shrink-0 px-2">
+        Langkah {currentStep} dari {steps.length}
+      </div>
 
-            {currentStep === steps.length ? (
-              <button
-                onClick={handleSubmit}
-                className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg font-semibold hover:shadow-lg active:scale-95 transition-all duration-300"
-              >
-                Kirim Pendaftaran
-                <CheckCircle2 className="w-5 h-5" />
-              </button>
-            ) : (
-              <button
-                onClick={handleNext}
-                className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-semibold hover:shadow-lg active:scale-95 transition-all duration-300"
-              >
-                Selanjutnya
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            )}
-          </div>
+      {currentStep === steps.length ? (
+        <button
+          onClick={handleSubmit}
+          // MODIFIKASI: Padding diubah menjadi px-4 di mobile, sm:px-8 di desktop
+          className="flex items-center gap-2 px-4 sm:px-8 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg font-semibold hover:shadow-lg active:scale-95 transition-all duration-300"
+        >
+          {/* MODIFIKASI: Teks dibungkus span dan disembunyikan di mobile */}
+          <span className="hidden sm:inline">Kirim Pendaftaran</span>
+          <CheckCircle2 className="w-5 h-5" />
+        </button>
+      ) : (
+        <button
+          onClick={handleNext}
+          // MODIFIKASI: Padding diubah menjadi px-4 di mobile, sm:px-8 di desktop
+          className="flex items-center gap-2 px-4 sm:px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-semibold hover:shadow-lg active:scale-95 transition-all duration-300"
+        >
+          {/* MODIFIKASI: Teks dibungkus span dan disembunyikan di mobile */}
+          <span className="hidden sm:inline">Selanjutnya</span>
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      )}
+    </div>
         </div>
       </div>
     </div>

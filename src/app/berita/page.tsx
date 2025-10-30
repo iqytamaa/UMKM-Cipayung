@@ -6,6 +6,8 @@ import ArticleCard from "@/app/components/article-card"
 import { TrendingUp, Palette, Share2, Lightbulb, DollarSign, Award } from "lucide-react"
 import AOS from "aos" // 2. Impor AOS
 import "aos/dist/aos.css" // 3. Impor CSS AOS
+import CustomPointer from "@/app/components/CustomPointer"
+
 
 // 1. Definisikan tipe spesifik untuk Kategori
 type Category = "Marketing" | "Branding" | "Social Media" | "Inovasi" | "Keuangan" | "Sertifikasi"
@@ -117,6 +119,7 @@ export default function BeritaPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <CustomPointer />
       {/* Hero Section (Memiliki animasi bawaan 'animate-fade-in') */}
       <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 py-20 sm:py-32">
         <div className="absolute inset-0 opacity-10">

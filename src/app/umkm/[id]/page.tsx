@@ -8,6 +8,8 @@ import { useState } from "react"
 // Pastikan path ke hook toast Anda sudah benar
 import { useToast } from "@/app/hooks/use-toast" 
 import { ShoppingCart, Trash2, Send, X, Loader2, CheckCircle } from "lucide-react"
+import CustomPointer from "@/app/components/CustomPointer"
+
 
 interface CartItem {
   name: string
@@ -102,6 +104,7 @@ export default function UMKMDetailPage({ params }: { params: { id: string } }) {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <CustomPointer />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Tombol Kembali */}
         <Link

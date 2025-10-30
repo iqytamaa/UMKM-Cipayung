@@ -7,6 +7,7 @@ import UMKMCard from "@/app/components/UMKMCard" // Saya perbaiki path ke @/comp
 import { ShoppingBag, Shirt, Wrench } from "lucide-react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import CustomPointer from "@/app/components/CustomPointer"
 
 // Tipe spesifik untuk kategori
 type UmkmCategory = "Kuliner" | "Fashion" | "Jasa & Lainnya";
@@ -69,8 +70,10 @@ export default function UMKMPage() {
   }, [searchQuery, selectedCategory]);
 
   return (
+
     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-gray-50 to-white">
       {/* Hero Section */}
+      <CustomPointer />
       <div data-aos="fade-in" className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 md:py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl opacity-50"></div>
@@ -87,7 +90,7 @@ export default function UMKMPage() {
       </div>
 
       {/* Search & Filter Section (Sticky) */}
-      <div className="sticky top-[64px] md:top-[68px] z-30 bg-gradient-to-b from-blue-50/95 via-gray-50/95 to-white/95 backdrop-blur-sm border-b border-gray-200/60">
+      <div className="md:top-[68px] z-30 bg-gradient-to-b from-blue-50/95 via-gray-50/95 to-white/95 backdrop-blur-sm border-b border-gray-200/60">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
           <div data-aos="fade-up" data-aos-delay="250" className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Search Input */}

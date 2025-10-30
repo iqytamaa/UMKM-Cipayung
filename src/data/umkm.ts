@@ -31,7 +31,7 @@ export const umkmData: UmkmData[] = [
     address: "Jl. Setu Cipayung Timur, RT.5/RW.1, Setu, Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/Asyiik/1.jpg", "/UMKM/Asyiik/2.jpg", "/UMKM/Asyiik/3.jpg",
-      "/UMKM/Asyiik/4.jpg", "/UMKM/Asyiik/5.jpg", "/UMKM/Asyiik/6.jpg"
+      "/UMKM/Asyiik/4.jpg", "/UMKM/Asyiik/5.jpg", "/UMKM/Asyiik/6.jpg",
     ],
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126900.96044443594!2d106.83255755296423!3d-6.308973127939453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e699338c8859de5%3A0x9d97cd0cff55cba6!2sASSYIIK%20Resto%20Setu%20Cipayung!5e0!3m2!1sen!2sid!4v1761745527414!5m2!1sen!2sid",
     rating: 4.8,
@@ -133,7 +133,7 @@ export const umkmData: UmkmData[] = [
       "Warung pecel lele kaki lima populer di area Pagelarang. Ada pecel lele, ayam, dan soto lamongan.",
     address: "Jl. Pagelarang No. 27, Setu, Cipayung, Jakarta Timur",
     gallery: [
-      "/UMKM/cak syam/1.jpg", "/UMKM/cak syam/2.jpg", "/UMKM/cak syam/3.jpg",
+      "/UMKM/cak syam/0.jpeg", "/UMKM/cak syam/2.jpg", "/UMKM/cak syam/3.jpg",
       "/UMKM/cak syam/4.jpg", "/UMKM/cak syam/5.jpg", "/UMKM/cak syam/6.jpg"
     ],
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.685007766503!2d106.91869007499108!3d-6.305052293684155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6992afcce14f3f%3A0xf2faa900070da904!2sPecel%20Lele%20Cak%20Syam!5e0!3m2!1sen!2sid!4v1761746017652!5m2!1sen!2sid",

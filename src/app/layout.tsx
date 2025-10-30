@@ -1,33 +1,51 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-// Perbaikan Path: Hapus '/app' jika folder components ada di src/components
-import Navbar from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
-import { Toaster } from "sonner"; // <-- 1. Import Toaster
+// Impor standar Anda
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] });
+// === INI PENTING ===
+// Impor semua komponen "global" Anda
+import CustomPointer from "@/app/components/CustomPointer"
+import BackgroundAudioPlayer from "@/app/components/BackgroundAudioPlayer"
+import Navbar from "@/app/components/Navbar" // <-- 1. Impor Navbar Anda
+import Footer from "@/app/components/Footer" // <-- 2. Impor Footer Anda
+
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "TemuCipayung - Direktori UMKM", // Nama bisa disesuaikan
-  description: "Temukan dan dukung UMKM lokal di Setu, Cipayung, Jakarta Timur.",
-};
+  title: "Website UMKM Setu Cipayung",
+  description: "Jelajahi dan dukung bisnis lokal Setu Cipayung.",
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="id">
-      <body className={`${inter.className} bg-gray-50 min-h-screen flex flex-col`}>
+    <html lang="en">
+      <body className={inter.className}>
+        
+        {/* Komponen yang "melayang" (fixed position) */}
+        <CustomPointer />
+        <BackgroundAudioPlayer src="/music/background-music.mp3" /> {/* Ganti dengan path musik Anda */}
+
+        {/* === DI SINILAH ANDA MENAMBAHKANNYA === */}
+
+        {/* 3. Tampilkan Navbar di bagian atas */}
         <Navbar />
-        <main className="flex-grow">{/* Ganti 'grow' jadi 'flex-grow' untuk konsistensi */}
+
+        {/* 'children' adalah isi dari 'page.tsx' (HomePage Anda).
+          Kita bungkus dengan <main> agar rapi.
+        */}
+        <main>
           {children}
         </main>
+
+        {/* 4. Tampilkan Footer di bagian bawah */}
         <Footer />
-        <Toaster richColors position="top-right" /> {/* <-- 2. Render Toaster di sini */}
+        
       </body>
     </html>
-  );
+  )
 }

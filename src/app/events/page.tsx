@@ -9,6 +9,8 @@ import EventRegistrationModal from "@/app/components/event-registration-modal"
 import { BookOpen, ShoppingCart, Users, GraduationCap, Presentation, MessageSquare } from "lucide-react"
 import AOS from "aos" // Impor AOS
 import "aos/dist/aos.css" // Impor CSS AOS
+import CustomPointer from "@/app/components/CustomPointer"
+
 
 // Definisikan tipe EventData
 interface EventData {
@@ -143,6 +145,7 @@ export default function EventsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <CustomPointer />
       {/* Hero Section (INI HEADERNYA, TIDAK DIHAPUS) */}
       <div className="relative overflow-hidden bg-gradient-to-r from-green-600 via-emerald-500 to-teal-500 py-20 sm:py-32">
         <div className="absolute inset-0 opacity-10">

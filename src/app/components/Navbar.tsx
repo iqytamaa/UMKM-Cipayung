@@ -48,10 +48,10 @@ export default function Navbar() {
                 />
               </div>
               {/* Teks "TemuCipayung" tetap ada di samping logo */}
-              <span className="text-xl font-bold hidden sm:block">
-                <span className="text-blue-600">Temu</span>
-                <span className="text-green-500">Cipayung</span>
-              </span>
+                <span className="text-xl font-bold sm:block">
+                  <span className="text-blue-600">Temu</span>
+                  <span className="text-green-500">Cipayung</span>
+                </span>
             </Link>
           </div>
           {/* === AKHIR PERUBAHAN LOGO === */}
