@@ -27,7 +27,7 @@ export const umkmData: UmkmData[] = [
     name: "ASSYIIK Resto Setu Cipayung",
     category: "Kuliner",
     description:
-      "Restoran semi-outdoor dengan pemandangan Danau Setu. Menyajikan masakan Indonesia seperti ikan bakar dan soto.",
+      "Restoran semi-outdoor. Spesialis masakan Indonesia seperti ikan bakar dan soto.",
     address: "Jl. Setu Cipayung Timur, RT.5/RW.1, Setu, Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/Asyiik/1.jpg", "/UMKM/Asyiik/2.jpg", "/UMKM/Asyiik/3.jpg",
@@ -52,7 +52,7 @@ export const umkmData: UmkmData[] = [
     name: "Bagi Kopi",
     category: "Kuliner",
     description:
-      "Coffee shop modern dengan suasana yang nyaman untuk bekerja atau nongkrong. Menyajikan berbagai kopi, non-kopi, dan makanan ringan.",
+      "Coffee shop modern yang nyaman untuk WFC (Work From Cafe) atau nongkrong.",
     address: "Jl. Mandor Munding, RT.4/RW.1, Setu, Cipayung, Jakarta Timur, 13880",
     gallery: [
       "/UMKM/bagi kopi/1.jpg", "/UMKM/bagi kopi/2.jpg", "/UMKM/bagi kopi/3.jpg",
@@ -78,7 +78,7 @@ export const umkmData: UmkmData[] = [
     name: "Walungan Rasa Cipayung",
     category: "Kuliner",
     description:
-      "Restoran khas Sunda yang menawarkan suasana makan di saung (gasebo) yang asri dan sejuk. Dikelilingi kolam ikan, cocok untuk makan bersama keluarga.",
+      "Restoran khas Sunda dengan saung di atas kolam ikan, cocok untuk keluarga.",
     address: "Jl. Bambu Apus Raya No.64, RT.4/RW.3, Bambu Apus, Kec. Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/walungan/1.jpg", "/UMKM/walungan/2.jpg", "/UMKM/walungan/3.jpg",
@@ -104,7 +104,7 @@ export const umkmData: UmkmData[] = [
     name: "Druma Cafe",
     category: "Kuliner",
     description:
-      "Cafe modern dan sangat luas dengan arsitektur industrial unik. Memiliki area indoor dan outdoor yang teduh, cocok untuk WFC (Work From Cafe) atau nongkrong santai.",
+      "Cafe industrial luas dengan area indoor/outdoor teduh, cocok untuk WFC atau nongkrong.",
     address: "Jl. Bina Marga No.21, RT.5/RW.5, Ceger, Kec. Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/druma/1.jpg", "/UMKM/druma/2.jpg", "/UMKM/druma/3.jpg",
@@ -130,7 +130,7 @@ export const umkmData: UmkmData[] = [
     name: "Pecel Lele Cak Syam",
     category: "Kuliner",
     description:
-      "Warung pecel lele kaki lima populer di area Pagelarang. Ada pecel lele, ayam, dan soto lamongan.",
+      "Warung pecel lele kaki lima populer di area Pagelarang, Setu Cipayung.",
     address: "Jl. Pagelarang No. 27, Setu, Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/cak syam/0.jpeg", "/UMKM/cak syam/2.jpg", "/UMKM/cak syam/3.jpg",
@@ -152,10 +152,10 @@ export const umkmData: UmkmData[] = [
   },
   {
     id: 6,
-    name: " ",
+    name: "SEATAP Tea and Sky",
     category: "Kuliner",
     description:
-      "Restoran & cafe kekinian dengan konsep interior tanaman yang rimbun dan Instagramable. Menawarkan menu Asia & Barat, serta aneka kopi, teh premium, dan mocktail.",
+      "Restoran & cafe kekinian dengan konsep interior tanaman yang rimbun dan Instagramable.",
     address: "Jl. Raya Mabes Hankam No.36, Bambu Apus, Kec. Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/seatap/1.jpg", "/UMKM/seatap/2.jpg", "/UMKM/seatap/3.jpg",
@@ -228,7 +228,7 @@ export const umkmData: UmkmData[] = [
     name: "Agam Tailor",
     category: "Fashion",
     description:
-      "Jasa penjahit (tailor) pembuatan dan permak pakaian pria (kemeja, celana, jas).",
+      "Jasa penjahit (tailor) pembuatan dan permak pakaian pria (kemeja, celana, dan jas).",
     address: "Jl. Cipayung RT 003 RW 003 No 10 Kel Setu Kec Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/agam/1.jpg", "/UMKM/agam/2.jpg", "/UMKM/agam/3.jpg"
@@ -251,7 +251,7 @@ export const umkmData: UmkmData[] = [
     name: "Flaneliajasmine (Rumahjasmine)",
     category: "Fashion",
     description:
-      "UMKM busana muslim modern (gamis, tunik, hijab) online dan offline.",
+      "UMKM busana muslim modern (gamis, tunik, dan hijab) online dan offline.",
     address: "Djimbo RT 01 RW 03 NO 61 Bambu Apus Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/Flaneliajasmine/1.jpg", "/UMKM/Flaneliajasmine/2.jpg", "/UMKM/Flaneliajasmine/3.jpg"
@@ -274,7 +274,7 @@ export const umkmData: UmkmData[] = [
     name: "Kaski Atelier",
     category: "Fashion",
     description:
-      "Toko fashion muslimah (gamis, tunik, hijab) dengan desain modern dan syar'i.",
+      "Toko fashion muslimah (gamis, tunik, dan hijab) dengan desain modern dan syar'i.",
     address: "Jl. Kp. Ratu Jaya No.46, RT.4/RW.5, Ratu Jaya, Kec. Cipayung, Kota Depok", // Ini Depok, tapi dekat
     gallery: [
       "/UMKM/Kaski Atelier/1.jpg", "/UMKM/Kaski Atelier/2.jpg", "/UMKM/Kaski Atelier/3.jpg"
@@ -434,7 +434,7 @@ export const umkmData: UmkmData[] = [
     name: "Terdekat Self Photo Studio",
     category: "Jasa & Lainnya",
     description:
-      "Studio foto mandiri (self-photo) kekinian. Ambil foto sepuasnya dengan peralatan profesional dan remote shutter.",
+      "Studio foto mandiri (self-photo) kekinian. Ambil foto sepuasnya dengan peralatan profesional.",
     address: "Jl. Cipayung Setu No. 200, Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/Terdekat Self Photo Studio/1.jpg", "/UMKM/Terdekat Self Photo Studio/2.jpg", "/UMKM/Terdekat Self Photo Studio/3.jpg"
@@ -459,7 +459,7 @@ export const categories: UmkmCategory[] = ["Kuliner", "Fashion", "Jasa & Lainnya
 
 // 4. EKSPOR WARNA KATEGORI DENGAN TIPE YANG BENAR
 export const categoryColors: Record<UmkmCategory, { from: string; to: string; badge: string }> = {
-  Kuliner: { from: "from-orange-400", to: "to-red-500", badge: "bg-orange-500" },
+  Kuliner: { from: "from-green-400", to: "to-green-600", badge: "bg-gradient-to-r from-green-400 to-green-600" },
   Fashion: { from: "from-pink-400", to: "to-purple-500", badge: "bg-pink-500" },
   "Jasa & Lainnya": { from: "from-blue-400", to: "to-cyan-500", badge: "bg-blue-500" },
 };

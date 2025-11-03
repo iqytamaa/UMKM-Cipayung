@@ -1,8 +1,8 @@
 "use client"
 
-import { useState, useMemo, useEffect, JSX } from "react"
-// Pastikan path import data dan komponen benar
+import { useState, useMemo, useEffect, JSX, Fragment } from "react"// Pastikan path import data dan komponen benar
 import { umkmData, type UmkmData } from "@/data/umkm" 
+import Image from "next/image" // <-- TAMBAHKAN BARIS INI
 import UMKMCard from "@/app/components/UMKMCard" // Saya perbaiki path ke @/components/
 import { ShoppingBag, Shirt, Wrench } from "lucide-react"
 import AOS from 'aos'
@@ -72,22 +72,49 @@ export default function UMKMPage() {
   return (
 
     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-gray-50 to-white">
-      {/* Hero Section */}
-      <CustomPointer />
-      <div data-aos="fade-in" className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 md:py-20 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl opacity-50"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl opacity-50"></div>
-        </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <h1 data-aos="fade-up" data-aos-delay="100" className="text-4xl md:text-5xl font-bold mb-3 text-balance">
+  {/* Hero Section */}
+  <CustomPointer />
+  <div data-aos="fade-in" className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 md:py-20 overflow-hidden">
+    <div className="absolute inset-0 opacity-10">
+      <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl opacity-50"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl opacity-50"></div>
+    </div>
+
+    {/* === GANTI BLOK INI === */}
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* Kita buat layout flex di sini */}
+      <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+        
+        {/* Kolom 1: Teks */}
+        <div className="md:w-2/3 text-center md:text-left">
+          <h1 data-aos="fade-up" data-aos-delay="100" className="text-4xl md:text-6xl font-bold mb-3 text-balance">
             Direktori UMKM Setu Cipayung
           </h1>
-          <p data-aos="fade-up" data-aos-delay="200" className="text-lg text-blue-100 max-w-2xl">
-            Jelajahi dan dukung bisnis lokal berkualitas di lingkungan kita.
-          </p>
+          <p data-aos="fade-up" data-aos-delay="200" className="text-xl text-blue-100 max-w-2xl mx-auto md:mx-0">
+  Jelajahi dan dukung bisnis lokal berkualitas di lingkungan kita.
+</p>
         </div>
+
+        {/* Kolom 2: Gambar */}
+        <div 
+          className="md:w-1/3 flex justify-center" 
+          data-aos="fade-left" 
+          data-aos-delay="300"
+        >
+          <Image
+            src="/Logo/umkm.svg" // Path dari folder /public
+            alt="Logo UMKM Setu Cipayung"
+            width={200}  // Sesuaikan ukurannya
+            height={200} // Sesuaikan ukurannya
+            priority
+          />
+        </div>
+
       </div>
+    </div>
+    {/* === Sampai sini === */}
+
+  </div>
 
       {/* Search & Filter Section (Sticky) */}
       <div className="md:top-[68px] z-30 bg-gradient-to-b from-blue-50/95 via-gray-50/95 to-white/95 backdrop-blur-sm border-b border-gray-200/60">
@@ -145,31 +172,75 @@ export default function UMKMPage() {
             {/* Grid wrapper */}
             {/* PERBAIKAN: 'grid-auto-rows-1fr' bisa ditambahkan jika h-full tidak cukup, tapi h-full di child harusnya bekerja */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 pb-12">
-              {displayedUMKM.map((umkm, index) => (
-                 // === PERBAIKAN DI SINI ===
-                 // Tambahkan className="h-full" agar div ini mengisi tinggi grid cell
-                 <div 
-                   key={umkm.id} 
-                   data-aos="fade-up" 
-                   data-aos-delay={index * 50} 
-                   className="h-full" 
-                 >
-                    <UMKMCard umkm={umkm} />
-                 </div>
-              ))}
-            </div>
+        {/* ... di dalam <div className="grid ..."> ... */}
 
-            {/* Tombol Lihat Selengkapnya/Sedikit */}
-            {hasMore && !showAll && (
-              <div data-aos="fade-up" data-aos-delay="100" className="flex justify-center pb-12">
-                <button
-                  onClick={() => setShowAll(true)}
-                  className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
-                >
-                  Lihat Selengkapnya (+{filteredUMKM.length - itemsToShowInitially})
-                </button>
-              </div>
-            )}
+{displayedUMKM.map((umkm, index) => (
+  // 1. GUNAKAN FRAGMENT SEBAGAI PEMBUNGKUS
+  <Fragment key={umkm.id}> 
+    
+    {/* 2. Ini adalah div kartu Anda yang sudah ada (KEY dipindah ke Fragment) */}
+    <div
+      data-aos="fade-up"
+      data-aos-delay={index * 50}
+      className="h-full relative group"
+    >
+      <Image
+        src="/UMKM/frame.svg"
+        alt="Frame UMKM"
+        layout="fill"
+        objectFit="fill"
+        className="z-20 transition-transform duration-300 ease-in-out group-hover:scale-105 pointer-events-none"
+      />
+      <div className="relative z-10 h-full pt-8 pb-6 px-12 transition-transform duration-300 ease-in-out group-hover:scale-105"> 	
+        <UMKMCard umkm={umkm} />
+      </div>
+    </div>
+
+    {/* 3. TAMBAHKAN BLOK SINTAKS INI SETELAH DIV KARTU */}
+    { (index + 1) % 6 === 3 && (
+ <div className="col-span-1 md:col-span-2 lg:col-span-3 flex justify-between items-center py-18 my-5">{/* Full width di semua ukuran */}
+          
+          {/* 2. Gambar Kiri (Vector 1.svg) - Path ditukar */}
+          <div data-aos="fade-right" data-aos-delay="500" className="-ml-16">
+            <Image
+              src="/Logo/Vector 1.svg" // <-- Path ditukar
+              alt="Decorative Vector Left"
+              width={300} 
+              height={300} 
+            />
+          </div>
+
+          {/* 3. Gambar Kanan (Vector 2.svg) - Path ditukar */}
+          <div data-aos="fade-left" data-aos-delay="600" className="-mr-16">
+            <Image
+              src="/Logo/Vector 2.svg" // <-- Path ditukar
+              alt="Decorative Vector Right"
+              width={300} 
+              height={300} 
+            />
+          </div>
+        </div>
+      )}
+  </Fragment> // <-- 4. TUTUP FRAGMENT
+))} 
+            </div>  
+
+           {/* Tombol Lihat Selengkapnya/Sedikit */}
+{hasMore && !showAll && (
+  // === TAMBAHKAN 'relative z-20' DI SINI ===
+  <div
+    data-aos="fade-up"
+    data-aos-delay="100"
+    className="flex justify-center pb-12 relative z-2"
+  >
+    <button
+      onClick={() => setShowAll(true)}
+      className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+    >
+      Lihat Selengkapnya (+{filteredUMKM.length - itemsToShowInitially})
+    </button>
+  </div>
+)}
              {showAll && (
               <div data-aos="fade-in" className="flex justify-center pb-12">
                 <button

@@ -10,6 +10,7 @@ import { BookOpen, ShoppingCart, Users, GraduationCap, Presentation, MessageSqua
 import AOS from "aos" // Impor AOS
 import "aos/dist/aos.css" // Impor CSS AOS
 import CustomPointer from "@/app/components/CustomPointer"
+import Image from "next/image"
 
 
 // Definisikan tipe EventData
@@ -146,22 +147,50 @@ export default function EventsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <CustomPointer />
-      {/* Hero Section (INI HEADERNYA, TIDAK DIHAPUS) */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-green-600 via-emerald-500 to-teal-500 py-20 sm:py-32">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-          <div className="absolute top-0 right-0 w-96 h-96 bg-teal-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-          <div className="absolute -bottom-8 left-20 w-96 h-96 bg-green-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
-        </div>
-        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
-            Jadwal Event UMKM Cipayung
-          </h1>
-          <p className="text-lg sm:text-xl text-green-100 max-w-2xl mx-auto animate-fade-in animation-delay-200">
-            Jangan lewatkan workshop, bazar, dan acara komunitas UMKM yang menarik di sekitar Anda.
-          </p>
-        </div>
+      {/* Hero Section (Sudah diubah ke Gradasi Biru, Rata Kiri, + Gambar) */}
+<div className="relative overflow-hidden bg-gradient-to-r from-indigo-600 via-blue-600 to-blue-500 py-16 md:py-20"> {/* 1. UBAH GRADASI */} 
+  {/* 2. UBAH WARNA BLOB */}
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+    <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+    <div className="absolute -bottom-8 left-20 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+  </div>
+
+  {/* Container (dihapus 'text-center') */}
+  <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 z-10">
+    
+    {/* 3. UBAH LAYOUT (Flex 2 kolom) */}
+    <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+
+      {/* Kolom 1: Teks (dibuat rata kiri) */}
+      <div className="md:w-2/3 text-center md:text-left">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
+          Jadwal Event UMKM Cipayung
+        </h1>
+        {/* Paragraf (dihapus 'mx-auto' & ubah warna text-blue-100) */}
+        <p className="text-lg sm:text-xl text-blue-100 max-w-2xl animate-fade-in animation-delay-200">
+          Jangan lewatkan workshop, bazar, dan acara komunitas UMKM yang menarik di sekitar Anda.
+        </p>
       </div>
+
+      {/* 4. KOLOM GAMBAR (BARU) */}
+      <div 
+                className="md:w-1/3 flex justify-center" 
+                data-aos="fade-left" 
+                data-aos-delay="300"
+              >
+                <Image
+                  src="/Logo/events.svg" // Path dari folder /public
+                  alt="Logo UMKM Setu Cipayung"
+                  width={200}  // Sesuaikan ukurannya
+                  height={200} // Sesuaikan ukurannya
+                  priority
+                />
+              </div>
+
+    </div>
+  </div>
+</div>
 
       {/* Filter & Events Container */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">

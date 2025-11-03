@@ -35,19 +35,19 @@ export default function UMKMCard({ umkm }: UMKMCardProps) {
             className={`absolute inset-0 bg-gradient-to-t ${colors.from} ${colors.to} opacity-0 group-hover:opacity-10 transition-opacity duration-300 z-10 pointer-events-none`}
           ></div>
 
-          {/* Category Badge */}
-          <div className="absolute top-3 right-3 z-20">
+         {/* Category Badge */}
+          <div className="absolute top-20 right-1 z-20"> 
             <span
               className={`${colors.badge} text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg`}
             >
               {umkm.category}
             </span>
           </div>
-
+          
           {/* Promo Badge */}
           {umkm.promo && (
-            <div className="absolute top-3 left-3 z-20">
-              <span className="bg-red-500 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-lg animate-pulse">
+            <div className="absolute top-20 left-1 z-20"> 
+              <span className="bg-red-500 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-lg animate-pulse z-40">
                 PROMO
               </span>
             </div>

@@ -6,6 +6,7 @@
     import { CheckCircle, XCircle, Lightbulb, ChevronDown } from "lucide-react"
     import AOS from "aos"
     import "aos/dist/aos.css"
+    import BackgroundAudioPlayer from "@/app/components/BackgroundAudioPlayer" // Sesuaikan path jika perlu
 
     // --- Data Kuis ---
     const quizData = [
@@ -161,6 +162,10 @@
     return (
         <div className="min-h-screen bg-gray-900">
         <MouseFollower />
+
+        {/* === 2. PANGGIL PEMUTAR MUSIK DI SINI === */}
+      {/* Pastikan path 'src' audio Anda benar di folder /public */}
+      <BackgroundAudioPlayer src="/music/background-music.mp3" />
 
         {/* Header Section (Full Page) */}
         <section    

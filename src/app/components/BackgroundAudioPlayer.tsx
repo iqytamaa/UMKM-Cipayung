@@ -61,7 +61,7 @@ export default function BackgroundAudioPlayer({ src }: BackgroundAudioPlayerProp
         preload="auto"
       />
 
-      <div className="fixed bottom-4 left-4 z-50">
+      <div className="fixed bottom-4 right-4 z-50">
         {/* [UBAH] Glow effect sekarang beranimasi RGB terus-menerus */}
         <div
           className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur-xl -z-10 animate-rgb-border
@@ -73,7 +73,7 @@ export default function BackgroundAudioPlayer({ src }: BackgroundAudioPlayerProp
         ></div>
 
         {/* [UBAH] Kotak pemutar utama juga diberi animasi 'animate-rgb-border' */}
-        <div className="relative p-2 bg-gradient-to-br from-slate-900/90 via-slate-800/90 to-slate-900/90 backdrop-blur-xl rounded-2xl text-white shadow-2xl border border-cyan-500/30 hover:border-cyan-500/50 transition-all duration-300 animate-rgb-border">
+        <div className="relative p-1.5 bg-gradient-to-br from-slate-900/90 via-slate-800/90 to-slate-900/90 backdrop-blur-xl rounded-2xl text-white shadow-2xl border border-cyan-500/30 hover:border-cyan-500/50 transition-all duration-300 animate-rgb-border">
           
 
           {/* Controls */}
@@ -93,7 +93,7 @@ export default function BackgroundAudioPlayer({ src }: BackgroundAudioPlayerProp
               className="p-1.5 rounded-full hover:bg-cyan-500/20 transition-all duration-300 hover:text-cyan-300"
               title={isMuted ? "Unmute" : "Mute"}
             >
-              {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+              {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
             </button>
 
             {/* Volume Slider */}
@@ -104,7 +104,7 @@ export default function BackgroundAudioPlayer({ src }: BackgroundAudioPlayerProp
               step="0.01"
               value={volume}
               onChange={handleVolumeChange}
-              className={`w-20 h-1.5 bg-gradient-to-r from-slate-700 to-slate-600 rounded-full appearance-none accent-cyan-400 cursor-pointer hover:accent-cyan-300 transition-all ${
+              className={`w-16 h-1.5 bg-gradient-to-r from-slate-700 to-slate-600 rounded-full appearance-none accent-cyan-400 cursor-pointer hover:accent-cyan-300 transition-all ${
                 isMuted ? "opacity-50" : ""
               }`}
             />

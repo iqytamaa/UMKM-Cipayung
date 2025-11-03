@@ -6,7 +6,6 @@ import "./globals.css"
 // === INI PENTING ===
 // Impor semua komponen "global" Anda
 import CustomPointer from "@/app/components/CustomPointer"
-import BackgroundAudioPlayer from "@/app/components/BackgroundAudioPlayer"
 import Navbar from "@/app/components/Navbar" // <-- 1. Impor Navbar Anda
 import Footer from "@/app/components/Footer" // <-- 2. Impor Footer Anda
 
@@ -28,8 +27,6 @@ export default function RootLayout({
         
         {/* Komponen yang "melayang" (fixed position) */}
         <CustomPointer />
-        <BackgroundAudioPlayer src="/music/background-music.mp3" /> {/* Ganti dengan path musik Anda */}
-
         {/* === DI SINILAH ANDA MENAMBAHKANNYA === */}
 
         {/* 3. Tampilkan Navbar di bagian atas */}

@@ -7,6 +7,8 @@ import { TrendingUp, Palette, Share2, Lightbulb, DollarSign, Award } from "lucid
 import AOS from "aos" // 2. Impor AOS
 import "aos/dist/aos.css" // 3. Impor CSS AOS
 import CustomPointer from "@/app/components/CustomPointer"
+import Image from "next/image"
+import React from "react"
 
 
 // 1. Definisikan tipe spesifik untuk Kategori
@@ -121,22 +123,46 @@ export default function BeritaPage() {
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <CustomPointer />
       {/* Hero Section (Memiliki animasi bawaan 'animate-fade-in') */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 py-20 sm:py-32">
+      <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 py-16 sm:py-20">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
           <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
           <div className="absolute -bottom-8 left-20 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
         </div>
 
-        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
-            Berita & Artikel
-          </h1>
-          <p className="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto animate-fade-in animation-delay-200">
-            Dapatkan insights, tips, dan tren terbaru seputar UMKM Cipayung dan dunia bisnis digital
-          </p>
-        </div>
-      </div>
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8  z-10">
+     {/* Wrapper Flex untuk layout 2 kolom */}
+  <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+
+    {/* Kolom 1: Teks (dibuat rata kiri) */}
+    <div className="md:w-2/3 text-center md:text-left">
+      <h1 className="text-x6l sm:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
+        Berita UMKM Setu Cipayung
+      </h1>
+      {/* Paragraf (dihapus 'mx-auto') */}
+     <p className="text-xl sm:text-1xl text-blue-100 max-w-2xl animate-fade-in animation-delay-200">
+  Dapatkan insights, tips, dan tren terbaru seputar UMKM Cipayung dan dunia bisnis digital
+</p>
+    </div>
+
+    {/* Kolom 2: Gambar (Elemen baru) */}
+    <div 
+              className="md:w-1/3 flex justify-center" 
+              data-aos="fade-left" 
+              data-aos-delay="300"
+            >
+              <Image
+                src="/Logo/berita.svg" // Path dari folder /public
+                alt="Logo UMKM Setu Cipayung"
+                width={200}  // Sesuaikan ukurannya
+                height={200} // Sesuaikan ukurannya
+                priority
+              />
+            </div>
+
+  </div>
+</div>
+</div>
 
       {/* Filter Section */}
       <div
@@ -170,15 +196,62 @@ export default function BeritaPage() {
           ))}
         </div>
 
-        {/* Articles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredArticles.map((article, index) => (
-            // 6. Bungkus ArticleCard dengan div untuk AOS Stagger
-            <div key={article.id} data-aos="fade-up" data-aos-delay={index * 100}>
-              <ArticleCard article={article} delay={0} /> {/* Hapus delay prop jika AOS yang menangani */}
-            </div>
-          ))}
+        {/* Articles Grid (Sudah dimodifikasi dengan Frame) */}
+{/* Articles Grid (Sudah dimodifikasi dengan Frame) */}
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  {filteredArticles.map((article, index) => (
+    // Menggunakan React Fragment untuk menyisipkan elemen di antara map
+    <React.Fragment key={article.id}>
+      {/* Kartu Artikel Biasa */}
+      <div 
+        data-aos="fade-up" 
+        data-aos-delay={index * 100}
+        className="h-full relative group" 
+      >
+        <Image
+          src="/Berita/frame.svg" 
+          alt="Frame Berita"
+          layout="fill"
+          objectFit="fill"
+          className="z-20 transition-transform duration-300 ease-in-out group-hover:scale-105 pointer-events-none" 
+        />
+        <div 
+          className="relative z-10 h-full pt-10 pb-1   px-12 transition-transform duration-300 ease-in-out group-hover:scale-105"
+        > 
+          <ArticleCard article={article} delay={0} />
         </div>
+      </div>
+
+      {/* === SISIPKAN GAMBAR DI SINI SETELAH ARTIKEL KE-3 === */}
+      {index === 2 && ( // Tampilkan setelah artikel dengan index 2 (artikel ke-3)
+        <div className="col-span-1 md:col-span-2 lg:col-span-3 flex justify-between items-center py-18 my-5">{/* Full width di semua ukuran */}
+          
+          {/* 2. Gambar Kiri (Vector 1.svg) - Path ditukar */}
+          <div data-aos="fade-right" data-aos-delay="500" className="-ml-16">
+            <Image
+              src="/Logo/Vector 1.svg" // <-- Path ditukar
+              alt="Decorative Vector Left"
+              width={300} 
+              height={300} 
+            />
+          </div>
+
+          {/* 3. Gambar Kanan (Vector 2.svg) - Path ditukar */}
+          <div data-aos="fade-left" data-aos-delay="600" className="-mr-16">
+            <Image
+              src="/Logo/Vector 2.svg" // <-- Path ditukar
+              alt="Decorative Vector Right"
+              width={300} 
+              height={300} 
+            />
+          </div>
+        </div>
+      )}
+    </React.Fragment>
+  ))}
+</div>
+
+
 
         {filteredArticles.length === 0 && (
           <div
