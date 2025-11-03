@@ -254,6 +254,32 @@ export default function EventsPage() {
                   themeColor="orange"
                 />
               )}
+              {/* === TEMPEL KODE VEKTOR DI SINI === */}
+            {/* Tampilkan HANYA jika tidak ada filter kategori */}
+            {!selectedCategory && ( 
+              <div className="col-span-1 md:col-span-2 lg:col-span-3 flex justify-between items-center py-13 my-5">{/* Full width di semua ukuran */}
+                
+                {/* 2. Gambar Kiri (Vector 1.svg) - Path ditukar */}
+                         <div data-aos="fade-right" data-aos-delay="500" className="-ml-16">
+                           <Image
+                             src="/Logo/Vector 1.svg" // <-- Path ditukar
+                             alt="Decorative Vector Left"
+                             width={300} 
+                             height={300} 
+                           />
+                         </div>
+               
+                         {/* 3. Gambar Kanan (Vector 2.svg) - Path ditukar */}
+                         <div data-aos="fade-left" data-aos-delay="600" className="-mr-16">
+                           <Image
+                             src="/Logo/Vector 2.svg" // <-- Path ditukar
+                             alt="Decorative Vector Right"
+                             width={300} 
+                             height={300} 
+                           />
+                         </div>
+                       </div>
+                     )}
             </>
           ) : (
             <div data-aos="fade-in" className="text-center py-12 bg-white rounded-2xl border-2 border-dashed border-gray-200">
@@ -274,20 +300,20 @@ export default function EventsPage() {
             </span>
           </div>
 
-          {totalUpcomingEvents > 0 ? (
-            <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {paginatedUpcoming.map((event, index) => (
-                  <div key={event.id} data-aos="fade-up" data-aos-delay={index * 100}>
-                    <EventCard
-                      event={event}
-                      delay={0}
-                      onRegister={() => handleRegister(event)}
-                      isOngoing={false}
-                    />
-                  </div>
-                ))}
-              </div>
+            {totalUpcomingEvents > 0 ? (
+              <>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {paginatedUpcoming.map((event, index) => (
+    <div key={event.id} data-aos="fade-up" data-aos-delay={index * 100}>
+      <EventCard
+        event={event}
+        delay={0}
+        onRegister={() => handleRegister(event)}
+        isOngoing={false}
+      />
+    </div>
+  ))}
+</div>
 
               {/* KONTROL PAGINATION UNTUK UPCOMING */}
               {totalUpcomingPages > 1 && (
