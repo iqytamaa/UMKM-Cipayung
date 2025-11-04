@@ -1,91 +1,173 @@
-    <<<<<<< HEAD
-    # TemuCipayung - Direktori Digital UMKM Setu Cipayung
+                                TemuCipayung - Direktori Digital UMKM Setu Cipayung
 
-    Selamat datang di TemuCipayung, sebuah prototipe *front-end* untuk website direktori digital yang didedikasikan untuk Usaha Mikro, Kecil, dan Menengah (UMKM) di area Kelurahan Setu, Kecamatan Cipayung, Jakarta Timur. Proyek ini bertujuan memudahkan warga dan pengunjung menemukan serta mendukung bisnis-bisnis lokal yang luar biasa di lingkungan sekitar.
+Selamat datang di TemuCipayung, sebuah prototipe front-end untuk website direktori digital yang didedikasikan untuk Usaha Mikro, Kecil, dan Menengah (UMKM) di area Kelurahan Setu, Kecamatan Cipayung, Jakarta Timur. Proyek ini bertujuan memudahkan warga dan pengunjung menemukan serta mendukung bisnis-bisnis lokal yang luar biasa di lingkungan sekitar.
 
-    Anggap saja ini sebagai "Google Maps"-nya UMKM untuk Cipayung!
+Anggap saja ini sebagai "Google Maps"-nya UMKM untuk Cipayung!
 
-    ## ✨ Fitur Utama
+✨ Fitur Utama & Penjelasan Halaman
+Proyek ini dibagi menjadi beberapa halaman utama, masing-masing dengan fungsionalitas spesifik:
 
-    * **Homepage:** Halaman selamat datang dengan visi & misi, serta *hero section* menarik menampilkan suasana Cipayung (dengan *image carousel*).
-    * **Direktori UMKM:** Menampilkan daftar UMKM (Kuliner, Fashion, Jasa & Lainnya) dalam format *grid*.
-    * **Pencarian:** Cari UMKM berdasarkan nama.
-    * **Filter Kategori:** Saring UMKM berdasarkan kategori (Kuliner, Fashion, Jasa & Lainnya).
-    * **Halaman Detail UMKM:** Halaman individual untuk setiap UMKM, menampilkan:
-        * Nama, Deskripsi/Cerita
-        * Alamat Lengkap
-        * Galeri Foto (Menampilkan 3 foto awal, bisa diperluas)
-        * Peta Lokasi Interaktif (Embed Google Maps)
-        * Informasi Tambahan (di *sidebar*)
-    * **Halaman Berita:** (Placeholder) Menampilkan artikel dan berita terkait UMKM.
-    * **Halaman Events:** Menampilkan daftar *upcoming* dan *ongoing events* dengan kartu interaktif dan filter kategori. Termasuk fitur *modal* pendaftaran (simulasi).
-    * **Halaman Panduan Daftar:** (Placeholder) Informasi cara mendaftarkan UMKM.
-    * **Desain Responsif:** Tampilan dioptimalkan untuk berbagai ukuran layar (desktop, tablet, mobile).
+1. / (Halaman Utama)
+   Halaman selamat datang yang menjadi gerbang utama.
 
-    ## 🚀 Teknologi yang Digunakan
+- Hero Section: Menampilkan image carousel full-screen dengan overlay teks dan tombol ajakan "Mulai Menjelajah" (yang mengarah ke /Games).
 
-    * **Framework:** [Next.js](https://nextjs.org/) (dengan App Router)
-    * **Bahasa:** [TypeScript](https://www.typescriptlang.org/)
-    * **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-    * **Ikon:** [Lucide React](https://lucide.dev/)
-    * **Package Manager:** npm (atau yarn)
-    * **Deployment:** (Belum ditentukan, bisa Vercel, Netlify, dll.)
+- Navbar Transparan: Navbar yang awalnya transparan akan berubah menjadi solid putih (bg-white) saat pengguna melakukan scroll ke bawah.
 
-    ## ⚙️ Cara Instalasi dan Menjalankan
+- Tentang Kami: Penjelasan Visi & Misi dengan layout grid responsif dan gambar (object-contain) agar tidak terpotong.
 
-    Ikuti langkah-langkah berikut untuk menjalankan proyek ini di komputer lokal Anda:
+- Mitra Kami: Menampilkan slider logo mitra yang bergerak otomatis (infinite scroll) dan dapat di-pause saat hover.
 
-    **Prasyarat:**
+- Testimoni: Grid 4 kolom yang menampilkan testimoni dari pelaku UMKM.
 
-    * Node.js (Versi 18.x atau lebih baru direkomendasikan)
-    * npm (biasanya terinstal bersama Node.js) atau Yarn
+- Peta Lokasi: Embed Google Maps yang menunjukkan lokasi Kelurahan Setu.
 
-    **Langkah Instalasi:**
+- FAQ: Komponen accordion interaktif yang bisa dibuka dan ditutup.
 
-    1.  **Clone Repository (jika ada):**
-        ```bash
-        git clone [https://www.fda.gov/drugs/types-applications/abbreviated-new-drug-application-anda](https://www.fda.gov/drugs/types-applications/abbreviated-new-drug-application-anda)
-        cd direktori-umkm-cipayung
-        ```
-        *Jika Anda mengunduh kode sebagai ZIP, unzip dan buka foldernya di terminal.*
+- Animasi: Seluruh section dianimasikan menggunakan AOS (Animate on Scroll) untuk efek fade-up, fade-left, dan fade-right.
 
-    2.  **Masuk ke Direktori Proyek:**
-        Pastikan Anda berada di direktori utama proyek (`direktori-umkm-cipayung`) di terminal Anda.
-        ```bash
-        cd direktori-umkm-cipayung
-        ```
+2. /umkm (Direktori UMKM)
+   Halaman inti dari aplikasi, tempat pengguna menjelajahi semua UMKM.
 
-    3.  **Install Dependencies:**
-        Jalankan perintah berikut untuk mengunduh semua *package* yang dibutuhkan:
-        ```bash
-        npm install
-        ```
-        *(Jika Anda menggunakan Yarn, gunakan `yarn install`)*
+- Grid Responsif: Menampilkan semua UMKM dalam layout grid-cols-3 (di desktop) dan grid-cols-1 (di mobile). Ketinggian kartu disamakan menggunakan grid-auto-rows-1fr dan h-full.
 
-    **Menjalankan Server Development:**
+- Filter & Search Bar (Sticky): Bar pencarian dan tombol filter kategori (Kuliner, Fashion, Jasa) yang akan "menempel" di bawah navbar saat di-scroll.
 
-    1.  Setelah instalasi selesai, jalankan perintah berikut untuk memulai server pengembangan Next.js:
-        ```bash
-        npm run dev
-        ```
-        *(Jika Anda menggunakan Yarn, gunakan `yarn dev`)*
+- Pencarian Real-time: Pengguna dapat mengetik nama UMKM atau kata kunci "Promo" untuk memfilter daftar secara instan.
 
-    2.  Server akan berjalan (biasanya di `http://localhost:3000`). Buka alamat tersebut di browser Anda.
+- Kartu UMKM (UMKMCard): Setiap kartu dibungkus dengan background frame (frame.svg). Gambar UMKM di dalamnya menggunakan object-contain agar tidak terpotong (tidak di-zoom).
 
-    3.  Anda sekarang bisa melihat aplikasi berjalan. Setiap perubahan yang Anda simpan di kode akan otomatis ter-refresh di browser (*hot reload*).
+3. /umkm/[id] (Halaman Detail UMKM)
+   Halaman dinamis yang menampilkan informasi lengkap satu UMKM.
 
-    ## 📁 Struktur Folder dan Alur File
+- Galeri Foto: Menampilkan 3 foto pertama dengan tombol "Lihat Semua Foto" untuk membuka sisa galeri. Gambar di sini juga menggunakan object-contain agar tidak terpotong.
 
-    **Alur Kerja Utama:**
+- Menu & Layanan: Daftar menu/jasa yang ditawarkan oleh UMKM.
 
-    1.  **Request Masuk:** Pengguna mengakses URL (misal: `/umkm`).
-    2.  **Next.js Routing:** Next.js mencocokkan URL dengan struktur folder di `/app`. `/umkm` akan diarahkan ke `src/app/umkm/page.tsx`.
-    3.  **Layout:** Komponen `src/app/layout.tsx` akan "membungkus" semua halaman. Di sinilah `Navbar` dan `Footer` ditampilkan.
-    4.  **Halaman (Page):** Komponen `page.tsx` di dalam folder rute (misal: `src/app/umkm/page.tsx`) akan dirender di dalam `layout.tsx`.
-    5.  **Komponen:** Halaman (`page.tsx`) akan menggunakan komponen-komponen dari `src/components` (seperti `UMKMCard`) untuk membangun UI.
-    6.  **Data:** Komponen atau halaman akan meng-import data dari `src/data/umkm.ts` untuk ditampilkan.
-    7.  **Styling:** Style diterapkan melalui kelas-kelas Tailwind CSS yang didefinisikan di `tailwind.config.js` dan dimuat via `globals.css`.
-    8.  **Aset Statis:** Gambar yang dirujuk dengan path `/images/...` akan diambil dari folder `public/images/`.
-    =======
-    # UMKM-Cipayung
-    >>>>>>> 283175b319089f4e8156aa45d78f46af38054de6
+- (Simulasi) Keranjang Belanja: Fungsionalitas useState untuk menambah, menghapus, dan menghitung total item dari menu.
+
+- Sidebar Sticky: Sidebar di sebelah kanan (pada desktop) akan "menempel" saat di-scroll, berisi deskripsi "Tentang Kami", alamat, dan tombol "Hubungi".
+
+- Ulasan: Menampilkan mock data ulasan dan form (simulasi) untuk mengirim ulasan baru.
+
+4. /berita (Halaman Berita)
+   Halaman yang berisi artikel dan tips terkait UMKM.
+
+- Filter Kategori: Memfilter artikel berdasarkan kategori (Marketing, Branding, Keuangan, dll.).
+
+- Grid Artikel: Tampilan kartu (ArticleCard) yang responsif, masing-masing dengan gambar object-contain agar tidak terpotong.
+
+- Link Eksternal: Setiap artikel akan mengarah ke link sumber aslinya di tab baru.
+
+5. /events (Halaman Event)
+   Menampilkan acara yang akan datang atau sedang berlangsung.
+
+- Pagination Ganda: Terdapat dua section ("Sedang Berlangsung" dan "Mendatang"), masing-masing dengan sistem pagination-nya sendiri (3 kartu per halaman).
+
+- Modal Pendaftaran: Tombol "Daftar" pada event mendatang akan membuka popup (modal) formulir pendaftaran.
+
+- Kartu Event: Didesain agar responsif dan menggunakan object-contain untuk gambar agar tidak terpotong.
+
+6. /Games (Halaman Kuis Interaktif)
+   Halaman gamifikasi untuk mengedukasi pengguna tentang UMKM.
+
+- Musik Latar: Komponen <BackgroundAudioPlayer> otomatis dimuat dan hanya muncul di halaman ini, memberikan suasana imersif.
+
+- Layout Full-screen: Setiap section (Header, Pertanyaan 1, 2, 3, dan Penutup) mengisi 100% tinggi layar (h-screen atau min-h-screen).
+
+- Kuis Interaktif: Kotak kuis semi-transparan (backdrop-blur) yang muncul di sisi kanan/kiri secara bergantian di atas background full-screen yang berbeda-beda.
+
+- Mouse Follower: Efek pointer kustom yang mengikuti kursor pengguna (hanya di desktop).
+
+7. /panduan-daftar (Halaman Pendaftaran)
+   Form untuk pemilik UMKM mendaftarkan usahanya.
+
+- Form Multi-Langkah: Form pendaftaran 4 langkah yang terorganisir.
+
+- Progress Bar Responsif: Menggunakan progress bar horizontal di desktop dan tampilan "Langkah 1 dari 4" yang simpel di mobile agar tidak berantakan.
+
+- Validasi Real-time: Pengecekan input (seperti inputMode="numeric" untuk telepon) untuk memandu pengguna.
+
+🚀 Teknologi yang Digunakan
+Framework: Next.js (App Router)
+
+- Bahasa: TypeScript
+
+- Styling: Tailwind CSS
+
+- Animasi: AOS (Animate on Scroll)
+
+- kon: Lucide React
+
+- Notifikasi (Toast): Sonner
+
+- Package Manager: npm
+
+⚙️ Cara Instalasi dan Menjalankan
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di komputer lokal Anda:
+
+Prasyarat:
+
+- Node.js (Versi 18.x atau lebih baru)
+
+- npm (terinstal bersama Node.js)
+
+Langkah Instalasi:
+
+1. Clone Repository: git clone https://github.com/iqytamaa/UMKM-Cipayung.git
+
+2. Masuk ke Direktori Proyek: cd UMKM-Cipayung
+
+3. Install Dependencies: Jalankan perintah berikut untuk mengunduh semua package yang dibutuhkan: npm install
+
+4. Menjalankan Server Development: npm run dev
+
+Server akan berjalan di http://localhost:3000. Buka alamat tersebut di browser Anda.
+
+Aplikasi akan berjalan dan otomatis ter-refresh (hot reload) setiap Anda menyimpan perubahan pada kode.
+
+📁 Struktur Folder
+/direktori-umkm-cipayung
+│
+├── /public/
+│ ├── /Games/ (Gambar untuk kuis)
+│ ├── /Home/ (Gambar untuk homepage)
+│ ├── /Mitra/ (Gambar logo mitra)
+│ ├── /UMKM/ (Gambar untuk setiap UMKM)
+│ └── ... (favicon.ico, dll)
+│
+├── /src/
+│ ├── /app/
+│ │ ├── /components/ (Komponen re-usable)
+│ │ │ ├── ArticleCard.tsx
+│ │ │ ├── EventCard.tsx
+│ │ │ ├── Footer.tsx
+│ │ │ ├── Navbar.tsx
+│ │ │ ├── UMKMCard.tsx
+│ │ │ └── ...
+│ │ ├── /berita/
+│ │ │ └── page.tsx
+│ │ ├── /events/
+│ │ │ └── page.tsx
+│ │ ├── /Games/
+│ │ │ └── page.tsx
+│ │ ├── /panduan-daftar/
+│ │ │ └── page.tsx
+│ │ ├── /umkm/
+│ │ │ ├── /[id]/
+│ │ │ │ └── page.tsx (Halaman Detail)
+│ │ │ └── page.tsx (Halaman Grid)
+│ │ ├── globals.css
+│ │ ├── layout.tsx (Layout utama dengan Navbar & Footer)
+│ │ └── page.tsx (Halaman Utama / Homepage)
+│ ├── /data/
+│ │ └── umkm.ts (Data utama aplikasi)
+│ ├── /hooks/
+│ │ └── use-toast.ts (Hook untuk notifikasi)
+│
+├── .gitignore
+├── next.config.mjs
+├── package.json
+├── postcss.config.js
+├── README.md (File ini)
+└── tailwind.config.ts
