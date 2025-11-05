@@ -117,7 +117,7 @@ Langkah Instalasi:
 1. Clone Repository: git clone https://github.com/iqytamaa/UMKM-Cipayung.git
 
 2. Masuk ke Direktori Proyek: cd UMKM-Cipayung
-
+`
 3. Install Dependencies: Jalankan perintah berikut untuk mengunduh semua package yang dibutuhkan: npm install
 
 4. Menjalankan Server Development: npm run dev

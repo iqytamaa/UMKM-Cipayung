@@ -61,7 +61,7 @@ export default function EventCard({
           
           {/* Badge "Sedang Berlangsung" di Kiri Atas */}
           {isOngoing && (
-              <div className="absolute top-4 left-4 z-20">
+              <div className="absolute top-10 -right-55 z-50">
                 <span className="inline-block px-3 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r from-orange-500 to-red-500 shadow-lg animate-pulse">
                   Sedang Berlangsung
                 </span>
@@ -69,7 +69,7 @@ export default function EventCard({
            )}
 
            {/* Badge Kategori di Kanan Atas */}
-          <div className="absolute top-4 right-4 z-20">
+          <div className="absolute top-10 -right-0 z-20">
             {/* 6. Gunakan event.color */}
             <span
               className={`inline-block px-4 py-2 rounded-full text-sm font-bold text-white bg-gradient-to-r ${event.color} shadow-lg`}

@@ -282,53 +282,78 @@
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
+              
               {/* Teks Visi */}
               <div 
                 className="order-1 md:order-2" 
                 data-aos="fade-left" // <-- AOS DARI KANAN
                 data-aos-delay="100"
               >
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 md:p-10 rounded-2xl shadow-lg border border-blue-200 h-full flex flex-col justify-center">
-                  <h3 className="text-3xl font-bold text-blue-900 mb-4">Visi Kami</h3>
-                  <p className="text-gray-700 leading-relaxed text-lg">
-                    Menjadi direktori digital terdepan yang memberdayakan dan memajukan seluruh UMKM di Setu, Cipayung, agar
-                    dapat bersaing dan berkembang di era modern dengan dukungan penuh dari komunitas.
-                  </p>
-                </div>
+
+                <div 
+                className="p-8 md:p-10 rounded-2xl shadow-lg border border-green-200 min-h-94 md:h-96 flex flex-col justify-center"
+                style={{
+                  backgroundImage: "url('/Home/Group 143.svg'), linear-gradient(to bottom right, #eff6ff, #dbeafe)",
+                  backgroundRepeat: "no-repeat, no-repeat",
+                  backgroundPosition: "center, center",
+                  backgroundSize: "120%, 100%"
+                }}
+              >
+                <h3 className="text-3xl font-bold text-blue-600 mb-3 md:mb-4">
+                  Visi Kami
+                </h3>
+                <p className="text-sm md:text-lg text-gray-700 leading-relaxed">
+                  Menjadi direktori digital terdepan yang memberdayakan dan memajukan seluruh UMKM di Setu, Cipayung, agar dapat bersaing dan berkembang di era modern dengan dukungan penuh dari komunitas.
+                </p>
+              </div>
+
               </div>
             </div>
             
-            {/* Misi Section */}
+
+          {/* Misi Section */}
             <div className="mb-20 grid md:grid-cols-2 gap-12 items-center">
-              {/* Teks Misi */}
-              <div 
-                data-aos="fade-right" // <-- AOS DARI KIRI
-                data-aos-delay="100"
-              >
-                <div className="bg-gradient-to-br from-green-50 to-green-100 p-8 md:p-10 rounded-2xl shadow-lg border border-green-200 h-full flex flex-col justify-center">
-                  <h3 className="text-3xl font-bold text-green-900 mb-4">Misi Kami</h3>
-                  <p className="text-gray-700 leading-relaxed text-lg">
-                    Menyediakan platform yang informatif, menarik, dan mudah diakses untuk mempromosikan produk dan jasa
-                    UMKM lokal kepada masyarakat luas, serta memfasilitasi kolaborasi dan pertumbuhan bersama.
-                  </p>
-                </div>
-              </div>
               {/* Gambar Misi */}
               <div 
-                className="relative w-full h-96 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                data-aos="fade-left" // <-- AOS DARI KANAN
+                className="order-1 md:order-2 relative w-full h-96 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300" // 1. Posisi di Kanan (md:order-2)
+                data-aos="fade-left" // 2. AOS dari Kiri
                 data-aos-delay="100"
               >
                 <Image
                   src="/Home/misi.jpg"
-                  alt="Ilustrasi misi direktori UMKM Cipayung"
+                  alt="Ilustrasi visi direktori UMKM Cipayung"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
+              
+              {/* Teks Misi */}
+              <div 
+                className="order-2 md:order-1" 
+                data-aos="fade-right" 
+                data-aos-delay="100"
+              >
+
+                <div 
+                className="p-8 md:p-10 rounded-2xl shadow-lg border border-green-200 min-h-94 md:h-96 flex flex-col justify-center"
+                style={{
+                  backgroundImage: "url('/Home/Group 145.svg'), linear-gradient(to bottom right, #f0fdf4, #dcfce7)",
+                  backgroundRepeat: "no-repeat, no-repeat",
+                  backgroundPosition: "center, center",
+                  backgroundSize: "120%, 100%"
+                }}
+              >
+                <h3 className="text-3xl font-bold text-green-900 mb-4">Misi Kami</h3>
+                <p className="text-sm md:text-lg text-gray-700 leading-relaxed">
+                  Menyediakan platform yang informatif, menarik, dan mudah diakses untuk mempromosikan produk dan jasa UMKM lokal kepada masyarakat luas, serta memfasilitasi kolaborasi dan pertumbuhan bersama.
+                </p>
+              </div>
+
+              </div>
             </div>
           </div>
+
 
         {/* Bagian Mitra Kami */}
           <div 
