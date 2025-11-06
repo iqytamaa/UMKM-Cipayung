@@ -135,8 +135,7 @@ export default function UMKMPage() {
             </div>
 
             {/* Category Filter */}
-            <div className="flex flex-wrap gap-2 items-center">
-              <button
+            <div className="flex flex-nowrap gap-2 items-center overflow-x-auto">              <button
                 onClick={() => setSelectedCategory("")}
                 className={`px-4 py-2 rounded-lg font-semibold transition-all text-xs md:text-sm flex items-center gap-1.5 shadow-sm border ${
                   selectedCategory === ""
@@ -174,27 +173,27 @@ export default function UMKMPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 pb-12">
         {/* ... di dalam <div className="grid ..."> ... */}
 
-{displayedUMKM.map((umkm, index) => (
-  // 1. GUNAKAN FRAGMENT SEBAGAI PEMBUNGKUS
-  <Fragment key={umkm.id}> 
-    
-    {/* 2. Ini adalah div kartu Anda yang sudah ada (KEY dipindah ke Fragment) */}
-    <div
-      data-aos="fade-up"
-      data-aos-delay={index * 50}
-      className="h-full relative group"
-    >
-      <Image
-        src="/UMKM/frame.svg"
-        alt="Frame UMKM"
-        layout="fill"
-        objectFit="fill"
-        className="z-20 transition-transform duration-300 ease-in-out group-hover:scale-105 pointer-events-none"
-      />
-      <div className="relative z-10 h-full pt-8 pb-6 px-12 transition-transform duration-300 ease-in-out group-hover:scale-105"> 	
-        <UMKMCard umkm={umkm} />
+  {displayedUMKM.map((umkm, index) => (
+    // 1. GUNAKAN FRAGMENT SEBAGAI PEMBUNGKUS
+    <Fragment key={umkm.id}> 
+      
+      {/* 2. Ini adalah div kartu Anda yang sudah ada (KEY dipindah ke Fragment) */}
+      <div
+        data-aos="fade-up"
+        data-aos-delay={index * 50}
+       className="relative group pt-10 aspect-[4/5] md:pt-0 md:aspect-auto"
+      >
+        <Image
+          src="/UMKM/frame.svg"
+          alt="Frame UMKM"
+          layout="fill"
+          objectFit="fill"
+          className="z-20 transition-transform duration-300 ease-in-out group-hover:scale-105 pointer-events-none"
+        />
+        <div className="relative z-10 h-full pt-8 pb-6 px-12 transition-transform duration-300 ease-in-out group-hover:scale-105"> 	
+          <UMKMCard umkm={umkm} />
+        </div>
       </div>
-    </div>
 
     {/* 3. TAMBAHKAN BLOK SINTAKS INI SETELAH DIV KARTU */}
     { (index + 1) % 6 === 3 && (

@@ -169,7 +169,10 @@ export default function BeritaPage() {
         className="container mx-auto px-4 sm:px-6 lg:px-8 py-12"
         data-aos="fade-up" // 5. Tambahkan AOS di sini
       >
-        <div className="flex flex-wrap gap-3 justify-center mb-12">
+       {/* ... di dalam Filter Section ... */}
+
+{/* INI BARIS YANG BARU */}
+<div className="flex flex-nowrap gap-3 overflow-x-auto mb-10 pb-4">
           <button
             onClick={() => setSelectedCategory(null)}
             className={`px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105 flex items-center gap-2 ${
@@ -206,7 +209,7 @@ export default function BeritaPage() {
       <div 
         data-aos="fade-up" 
         data-aos-delay={index * 100}
-        className="h-full relative group" 
+         className="relative group pt-10 aspect-[3/4] md:pt-0 md:aspect-auto"
       >
         <Image
           src="/Berita/frame.svg" 
@@ -215,9 +218,8 @@ export default function BeritaPage() {
           objectFit="fill"
           className="z-20 transition-transform duration-300 ease-in-out group-hover:scale-105 pointer-events-none" 
         />
-        <div 
-          className="relative z-10 h-full pt-10 pb-1   px-12 transition-transform duration-300 ease-in-out group-hover:scale-105"
-        > 
+
+        <div className="relative z-10 h-full pt-7 pb-2 px-[15px] md:pt-8 md:pb-1 md:px-12 transition-transform duration-300 ease-in-out group-hover:scale-105"> 
           <ArticleCard article={article} delay={0} />
         </div>
       </div>

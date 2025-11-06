@@ -344,7 +344,7 @@ export default function EventsPage() {
           Agar tombol filter tidak tertimpa frame kartu saat hover
           ============================================================
         */}
-          <div data-aos="fade-up" className="relative z-40 flex flex-wrap gap-3 justify-center mb-12">
+          <div data-aos="fade-up" className="relative z-40 flex flex-nowrap gap-3 overflow-x-auto mb-12 pb-4">
           <button
             onClick={() => setSelectedCategory(null)}
             className={`px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
@@ -392,7 +392,7 @@ export default function EventsPage() {
                     key={event.id}
                     data-aos="fade-up"
                     data-aos-delay={index * 100}
-                    className="h-full relative group" // 1. Wrapper jadi group
+                    className="relative group pt-4 aspect-[3/4] md:pt-0 md:aspect-auto"
                   >
                     {/* 2. Tambahkan Frame SVG (z-20) */}
                     <div className="absolute inset-0 z-40 pointer-events-none">
@@ -405,7 +405,7 @@ export default function EventsPage() {
                   </div>
 
                   {/* Konten card di bawah frame */}
-                  <div className="relative z-30 h-full pt-10 pb-8 px-12 transition-transform duration-300 ease-in-out group-hover:scale-105">
+                  <div className="relative z-10 h-full pt-4 pb-6 px-[15px] md:pt-8 md:pb-1 md:px-12 transition-transform duration-300 ease-in-out group-hover:scale-105">
                     <EventCard event={event} delay={0} isOngoing={true} />
                   </div>
                 </div>
@@ -483,7 +483,8 @@ export default function EventsPage() {
                     data-aos="fade-up"
                     data-aos-delay={index * 100}
                     // PERBAIKAN 1: Menyamakan className wrapper (menghapus overflow-visible, menambah h-full)
-                    className="h-full relative group"
+                    className="relative group pt-4 aspect-[3/4] md:pt-0 md:aspect-auto"
+
                   >
                     {/* PERBAIKAN 2: Menambahkan <div> wrapper untuk Frame (z-40) */}
                     <div className="absolute inset-0 z-40 pointer-events-none">
@@ -497,7 +498,7 @@ export default function EventsPage() {
                     </div>
 
                     {/* Konten card di bawah frame (z-30) */}
-                    <div className="relative z-30 h-full pt-10 pb-8 px-12 transition-transform duration-300 ease-in-out group-hover:scale-105">
+                    <div className="relative z-10 h-full pt-4 pb-6 px-[15px] md:pt-8 md:pb-1 md:px-12 transition-transform duration-300 ease-in-out group-hover:scale-105">
                       <EventCard
                         event={event}
                         delay={0}
