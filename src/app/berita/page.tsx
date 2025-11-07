@@ -209,7 +209,7 @@ export default function BeritaPage() {
       <div 
         data-aos="fade-up" 
         data-aos-delay={index * 100}
-         className="relative group pt-10 aspect-[3/4] md:pt-0 md:aspect-auto"
+        className="relative group pt-10 aspect-[3/4] md:pt-0 md:aspect-auto"
       >
         <Image
           src="/Berita/frame.svg" 
@@ -219,7 +219,7 @@ export default function BeritaPage() {
           className="z-20 transition-transform duration-300 ease-in-out group-hover:scale-105 pointer-events-none" 
         />
 
-        <div className="relative z-10 h-full pt-7 pb-2 px-[15px] md:pt-8 md:pb-1 md:px-12 transition-transform duration-300 ease-in-out group-hover:scale-105"> 
+        <div className="relative z-10 h-full pt-7 pb-2 px-0 md:pt-8 md:pb-1 md:px-12 transition-transform duration-300 ease-in-out group-hover:scale-105"> 
           <ArticleCard article={article} delay={0} />
         </div>
       </div>

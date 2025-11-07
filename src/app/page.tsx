@@ -103,26 +103,26 @@
       const testimonials = [
         {
           name: "Ibu Siti",
-          business: "Warung Kopi Cipayung",
+          business: "Toko Kelontong",
           text: "Platform ini sangat membantu bisnis saya. Banyak pelanggan baru menemukan warung saya dari sini. Terima kasih!",
           image: "/Home/woman-entrepreneur.jpg",
         },
         {
-          name: "Pak Budi",
-          business: "Pengrajin Batik Setu",
-          text: "Produk batik saya lebih dikenal luas sekarang. Bangga bisa mempromosikan kerajinan lokal Cipayung.",
+        name: "Pak Budi",
+        business: "Laundry Kiloan",
+        text: "Sejak ada direktori ini, laundry saya jadi lebih ramai. Senang bisa bantu warga Cipayung tampil rapi setiap hari.",
           image: "/Home/man-craftsman.jpg",
         },
         {
           name: "Mbak Rina",
-          business: "Penjual Makanan Tradisional",
-          text: "Inisiatif bagus! Komunitas UMKM Cipayung jadi lebih solid dan saling mendukung. Semoga terus maju!",
+          business: "Pecel Lele & Ayam Bakar",
+          text: "Inisiatif bagus! Warung pecel lele saya jadi lebih gampang ditemukan pelanggan baru. Komunitas UMKM Cipayung jadi lebih solid!",
           image: "/Home/woman-seller.jpg",
         },
         {
           name: "Pak Hendra",
-          business: "Toko Elektronik Setu",
-          text: "Kolaborasi antar UMKM jadi lebih mudah. Saya sudah bermitra dengan beberapa bisnis lain melalui platform ini.",
+          business: "Tambal Ban",
+          text: "Direktori ini memudahkan warga menemukan jasa tambal ban saya. Bisnis jadi lancar, pelanggan pun puas!",
           image: "/Home/man-shop-owner.jpg",
         },
       ]

@@ -60,24 +60,26 @@ export default function EventCard({
           />
           
           {/* Badge "Sedang Berlangsung" di Kiri Atas */}
-          {isOngoing && (
-              <div className="absolute top-10 -right-55 z-50">
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r from-orange-500 to-red-500 shadow-lg animate-pulse">
-                  Sedang Berlangsung
-                </span>
-              </div>
-           )}
-
-           {/* Badge Kategori di Kanan Atas */}
-          <div className="absolute top-10 -right-0 z-20">
-            {/* 6. Gunakan event.color */}
-            <span
-              className={`inline-block px-4 py-2 rounded-full text-sm font-bold text-white bg-gradient-to-r ${event.color} shadow-lg`}
-            >
-              {event.category}
+        {isOngoing && (
+          // 'top-10' untuk HP, 'md:top-20' untuk desktop
+          <div className="absolute top-10 md:top-20 -right-55 z-50">
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r from-orange-500 to-red-500 shadow-lg animate-pulse">
+              Sedang Berlangsung
             </span>
           </div>
+        )}
+
+        {/* Badge Kategori di Kanan Atas */}
+        {/* 'top-10' untuk HP, 'md:top-20' untuk desktop */}
+        <div className="absolute top-10 md:top-20 -right-0 z-20">
+          {/* 6. Gunakan event.color */}
+          <span
+            className={`inline-block px-4 py-2 rounded-full text-sm font-bold text-white bg-gradient-to-r ${event.color} shadow-lg`}
+          >
+            {event.category}
+          </span>
         </div>
+      </div>
 
         {/* Content */}
         <div className="p-6 flex flex-col flex-grow">

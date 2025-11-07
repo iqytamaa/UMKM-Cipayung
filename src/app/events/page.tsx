@@ -35,7 +35,7 @@ type Category = "Workshop" | "Bazar" | "Networking" | "Pelatihan" | "Seminar" | 
 const upcomingEvents: EventData[] = [
   {
     id: 1,
-    title: "Workshop Digital Marketing untuk UMKM",
+    title: "Digital Marketing",
     description: "Pelajari strategi digital marketing terkini untuk UMKM.",
     date: "25 Nov 2025",
     time: "10:00 - 13:00 WIB",
@@ -48,7 +48,7 @@ const upcomingEvents: EventData[] = [
   },
   {
     id: 2,
-    title: "Bazar UMKM Cipayung 2025",
+    title: "Bazar UMKM",
     description: "Jelajahi dan beli beragam produk unggulan UMKM lokal Cipayung di bazar ini.",
     date: "1 Des 2025",
     time: "09:00 - 17:00 WIB",
@@ -61,7 +61,7 @@ const upcomingEvents: EventData[] = [
   },
   {
     id: 3,
-    title: "Networking Session UMKM Cipayung",
+    title: "Networking Session",
     description: "Perluas jaringan Anda dan temukan mitra kolaborasi baru di sesi networking ini.",
     date: "8 Des 2025",
     time: "14:00 - 17:00 WIB",
@@ -74,7 +74,7 @@ const upcomingEvents: EventData[] = [
   },
   {
     id: 4,
-    title: "Pelatihan Manajemen Keuangan UMKM",
+    title: "Manajemen Keuangan",
     description: "Kuasai teknik pengelolaan keuangan yang efektif untuk memajukan bisnis UMKM Anda.",
     date: "15 Des 2025",
     time: "10:00 - 12:00 WIB",
@@ -87,7 +87,7 @@ const upcomingEvents: EventData[] = [
   },
   {
     id: 8,
-    title: "Kelas Fotografi Produk UMKM",
+    title: "Kelas Fotografi Produk",
     description: "Belajar teknik foto produk yang menarik dan menjual untuk meningkatkan omzet.",
     date: "18 Des 2025",
     time: "09:00 - 12:00 WIB",
@@ -100,7 +100,7 @@ const upcomingEvents: EventData[] = [
   },
   {
     id: 9,
-    title: "Diskusi Legalitas Usaha UMKM",
+    title: "Diskusi Legalitas Usaha",
     description: "Pahami aspek hukum & perizinan usaha agar bisnis UMKM Anda aman dan terdaftar.",
     date: "22 Des 2025",
     time: "13:00 - 15:00 WIB",
@@ -116,7 +116,7 @@ const upcomingEvents: EventData[] = [
 const ongoingEvents: EventData[] = [
   {
     id: 5,
-    title: "Seminar Inovasi Produk dan Packaging",
+    title: "Seminar Inovasi produk ",
     description: "Dapatkan wawasan inovasi produk dan desain packaging untuk memenangkan pasar.",
     date: "28 Okt 2025",
     time: "13:00 - 15:30 WIB",
@@ -129,7 +129,7 @@ const ongoingEvents: EventData[] = [
   },
   {
     id: 6,
-    title: "Konsultasi Bisnis Gratis untuk UMKM",
+    title: "Konsultasi Bisnis",
     description: "Manfaatkan sesi konsultasi bisnis gratis untuk temukan solusi masalah usaha Anda.",
     date: "29 Okt 2025",
     time: "10:00 - 16:00 WIB",
@@ -142,7 +142,7 @@ const ongoingEvents: EventData[] = [
   },
   {
     id: 7,
-    title: "Pameran Foto Produk UMKM",
+    title: "Pameran Foto UMKM",
     description: "Lihat pameran karya fotografi produk UMKM terbaik dan temukan inspirasi visual.",
     date: "27 Okt 2025",
     time: "11:00 - 17:00 WIB",
@@ -156,7 +156,7 @@ const ongoingEvents: EventData[] = [
   // 3 EVENT BARU (ONGOING)
   {
     id: 10,
-    title: "Pelatihan Live Selling TikTok",
+    title: "Pelatihan Live Selling",
     description: "Kuasai tips & trik sukses live selling di TikTok untuk tingkatkan omzet Anda.",
     date: "29 Okt 2025",
     time: "14:00 - 16:00 WIB",
@@ -169,7 +169,7 @@ const ongoingEvents: EventData[] = [
   },
   {
     id: 11,
-    title: "Workshop Pembukuan Sederhana",
+    title: "Workshop Pembukuan",
     description: "Pelajari cara praktis membuat pembukuan sederhana agar keuangan bisnis rapi.",
     date: "30 Okt 2025",
     time: "09:00 - 12:00 WIB",
@@ -182,7 +182,7 @@ const ongoingEvents: EventData[] = [
   },
   {
     id: 12,
-    title: "Sesi Pitching Investor Lokal",
+    title: "Sesi Pitching Investor",
     description: "Presentasikan ide bisnis Anda dan dapatkan kesempatan pendanaan dari investor lokal.",
     date: "30 Okt 2025",
     time: "15:00 - 17:00 WIB",
@@ -405,7 +405,7 @@ export default function EventsPage() {
                   </div>
 
                   {/* Konten card di bawah frame */}
-                  <div className="relative z-10 h-full pt-4 pb-6 px-[15px] md:pt-8 md:pb-1 md:px-12 transition-transform duration-300 ease-in-out group-hover:scale-105">
+                  <div className="relative z-10 h-full pt-4 pb-6 px-[15px] md:pt-15 md:pb-0 md:px-10 transition-transform duration-300 ease-in-out group-hover:scale-105">
                     <EventCard event={event} delay={0} isOngoing={true} />
                   </div>
                 </div>
@@ -498,7 +498,7 @@ export default function EventsPage() {
                     </div>
 
                     {/* Konten card di bawah frame (z-30) */}
-                    <div className="relative z-10 h-full pt-4 pb-6 px-[15px] md:pt-8 md:pb-1 md:px-12 transition-transform duration-300 ease-in-out group-hover:scale-105">
+                    <div className="relative z-10 h-full pt-4 pb-6 px-[15px] md:pt-15 md:pb-0 md:px-10 transition-transform duration-300 ease-in-out group-hover:scale-105">
                       <EventCard
                         event={event}
                         delay={0}

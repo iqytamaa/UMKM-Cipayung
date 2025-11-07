@@ -24,7 +24,7 @@ export const umkmData: UmkmData[] = [
   // Kategori: Kuliner (6)
   {
     id: 1,
-    name: "ASSYIIK Resto Setu Cipayung",
+    name: "Assyiik Resto",
     category: "Kuliner",
     description:
       "Restoran semi-outdoor. Spesialis masakan Indonesia seperti ikan bakar dan soto.",
@@ -75,7 +75,7 @@ export const umkmData: UmkmData[] = [
   },
   {
     id: 3,
-    name: "Walungan Rasa Cipayung",
+    name: "Walungan Rasa",
     category: "Kuliner",
     description:
       "Restoran khas Sunda dengan saung di atas kolam ikan, cocok untuk keluarga.",
@@ -180,7 +180,7 @@ export const umkmData: UmkmData[] = [
   // Kategori: Fashion (6)
   {
     id: 7,
-    name: "Restu Anggraini (Butik Muslim)",
+    name: "Restu Anggraini",
     category: "Fashion",
     description:
       "Butik desainer busana muslim modern (modest wear) wanita. Ada gamis dan tunik.",
@@ -248,7 +248,7 @@ export const umkmData: UmkmData[] = [
   },
   {
     id: 10,
-    name: "Flaneliajasmine (Rumahjasmine)",
+    name: "Flaneliajasmine",
     category: "Fashion",
     description:
       "UMKM busana muslim modern (gamis, tunik, dan hijab) online dan offline.",
@@ -343,7 +343,7 @@ export const umkmData: UmkmData[] = [
   },
   {
     id: 14,
-    name: "Planet Ban Cipayung Setu",
+    name: "Planet Ban",
     category: "Jasa & Lainnya",
     description:
       "Toko ritel & jasa: ban motor, ganti oli, servis ringan motor.",
@@ -366,7 +366,7 @@ export const umkmData: UmkmData[] = [
   },
   {
     id: 15,
-    name: "Swan Laundry Cipayung",
+    name: "Swan Laundry",
     category: "Jasa & Lainnya",
     description:
       "Jasa penatu (laundry) kiloan dan satuan: cuci, kering, setrika.",
@@ -409,7 +409,7 @@ export const umkmData: UmkmData[] = [
   },
   {
     id: 17,
-    name: "Penyewaan Perahu Bebek Waduk Setu",
+    name: "Perahu Bebek Setu",
     category: "Jasa & Lainnya",
     description: "Jasa rekreasi menyewakan perahu bebek keliling Danau Setu.",
     address: "Area Ekowisata Waduk Setu, Setu, Cipayung, Jakarta Timur",
@@ -431,7 +431,7 @@ export const umkmData: UmkmData[] = [
   },
   {
     id: 18,
-    name: "Terdekat Self Photo Studio",
+    name: "Terdekat Self Photo",
     category: "Jasa & Lainnya",
     description:
       "Studio foto mandiri (self-photo) kekinian. Ambil foto sepuasnya dengan peralatan profesional.",

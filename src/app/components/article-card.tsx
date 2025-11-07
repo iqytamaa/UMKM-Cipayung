@@ -43,7 +43,6 @@ export default function ArticleCard({ article }: ArticleCardProps) {
           <div
             className={`absolute inset-0 bg-gradient-to-br ${article.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500 z-10`}
           ></div>
-          
           <Image
             src={article.image || "/placeholder.svg"}
             alt={article.title}

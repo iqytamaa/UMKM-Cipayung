@@ -181,7 +181,7 @@ export default function UMKMPage() {
       <div
         data-aos="fade-up"
         data-aos-delay={index * 50}
-       className="relative group pt-10 aspect-[4/5] md:pt-0 md:aspect-auto"
+       className="relative group h-full pt-10 aspect-[4/5] md:pt-0 md:aspect-auto" // ->Kecilin img kartu
       >
         <Image
           src="/UMKM/frame.svg"
@@ -190,7 +190,7 @@ export default function UMKMPage() {
           objectFit="fill"
           className="z-20 transition-transform duration-300 ease-in-out group-hover:scale-105 pointer-events-none"
         />
-        <div className="relative z-10 h-full pt-8 pb-6 px-12 transition-transform duration-300 ease-in-out group-hover:scale-105"> 	
+        <div className="relative z-10 h-full pt-8 pb-6 px-[37px] md:pt-6 md:pb-2 md:px-12 transition-transform duration-300 ease-in-out group-hover:scale-105">	
           <UMKMCard umkm={umkm} />
         </div>
       </div>
