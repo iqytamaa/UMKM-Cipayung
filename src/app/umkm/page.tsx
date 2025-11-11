@@ -7,8 +7,6 @@ import UMKMCard from "@/app/components/UMKMCard" // Saya perbaiki path ke @/comp
 import { ShoppingBag, Shirt, Wrench } from "lucide-react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import CustomPointer from "@/app/components/CustomPointer"
-
 // Tipe spesifik untuk kategori
 type UmkmCategory = "Kuliner" | "Fashion" | "Jasa & Lainnya";
 
@@ -73,11 +71,11 @@ export default function UMKMPage() {
 
     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-gray-50 to-white">
   {/* Hero Section */}
-  <CustomPointer />
-  <div data-aos="fade-in" className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 md:py-20 overflow-hidden">
+
+  <div data-aos="fade-in" className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 md:py-20 ">
     <div className="absolute inset-0 opacity-10">
-      <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl opacity-50"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl opacity-50"></div>
+      <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full  opacity-50"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full  opacity-50"></div>
     </div>
 
     {/* === GANTI BLOK INI === */}
@@ -117,7 +115,8 @@ export default function UMKMPage() {
   </div>
 
       {/* Search & Filter Section (Sticky) */}
-      <div className="md:top-[68px] z-30 bg-gradient-to-b from-blue-50/95 via-gray-50/95 to-white/95 backdrop-blur-sm border-b border-gray-200/60">
+      <div className="bg-gradient-to-b from-blue-50/95 via-gray-50/95 to-white/95 border-b border-gray-200/60">
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
           <div data-aos="fade-up" data-aos-delay="250" className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Search Input */}
@@ -135,7 +134,7 @@ export default function UMKMPage() {
             </div>
 
             {/* Category Filter */}
-            <div className="flex flex-nowrap gap-2 items-center overflow-x-auto">              <button
+            <div className="flex flex-nowrap   gap-2 items-center overflow-x-auto">              <button
                 onClick={() => setSelectedCategory("")}
                 className={`px-4 py-2 rounded-lg font-semibold transition-all text-xs md:text-sm flex items-center gap-1.5 shadow-sm border ${
                   selectedCategory === ""
@@ -181,7 +180,7 @@ export default function UMKMPage() {
       <div
         data-aos="fade-up"
         data-aos-delay={index * 50}
-       className="relative group h-full pt-10 aspect-[4/5] md:pt-0 md:aspect-auto" // ->Kecilin img kartu
+       className="relative group h-full aspect-[4/5] md:pt-0 md:aspect-auto" // ->Kecilin img kartu
       >
         <Image
           src="/UMKM/frame.svg"
@@ -190,7 +189,7 @@ export default function UMKMPage() {
           objectFit="fill"
           className="z-20 transition-transform duration-300 ease-in-out group-hover:scale-105 pointer-events-none"
         />
-        <div className="relative z-10 h-full pt-8 pb-6 px-[37px] md:pt-6 md:pb-2 md:px-12 transition-transform duration-300 ease-in-out group-hover:scale-105">	
+        <div className="relative z-10 h-full pt-8 pb-6 px-[37px] md:pt-20 md:px-12 transition-transform duration-300 ease-in-out group-hover:scale-105">	
           <UMKMCard umkm={umkm} />
         </div>
       </div>

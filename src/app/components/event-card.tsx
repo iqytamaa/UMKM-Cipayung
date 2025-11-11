@@ -62,19 +62,19 @@ export default function EventCard({
           {/* Badge "Sedang Berlangsung" di Kiri Atas */}
         {isOngoing && (
           // 'top-10' untuk HP, 'md:top-20' untuk desktop
-          <div className="absolute top-10 md:top-20 -right-55 z-50">
+          <div className="absolute top-16 md:top-16 -right-55 z-40">
             <span className="inline-block px-3 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r from-orange-500 to-red-500 shadow-lg animate-pulse">
-              Sedang Berlangsung
+              Berlangsung
             </span>
           </div>
         )}
 
         {/* Badge Kategori di Kanan Atas */}
         {/* 'top-10' untuk HP, 'md:top-20' untuk desktop */}
-        <div className="absolute top-10 md:top-20 -right-0 z-20">
+        <div className="absolute top-16 md:top-40 -right-0 z-20">
           {/* 6. Gunakan event.color */}
           <span
-            className={`inline-block px-4 py-2 rounded-full text-sm font-bold text-white bg-gradient-to-r ${event.color} shadow-lg`}
+            className={`inline-block px-3 py-1 rounded-full text-sm font-bold text-white bg-gradient-to-r ${event.color} shadow-lg`}
           >
             {event.category}
           </span>

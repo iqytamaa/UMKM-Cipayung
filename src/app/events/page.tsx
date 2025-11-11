@@ -344,10 +344,10 @@ export default function EventsPage() {
           Agar tombol filter tidak tertimpa frame kartu saat hover
           ============================================================
         */}
-          <div data-aos="fade-up" className="relative z-40 flex flex-nowrap gap-3 overflow-x-auto mb-12 pb-4">
+          <div data-aos="fade-up" className="relative z-40 flex flex-nowrap justify-center gap-3 overflow-x-auto mb-12 pb-4">
           <button
             onClick={() => setSelectedCategory(null)}
-            className={`px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
+            className={`px-10 py-2 dan md:px-6 md:py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
               selectedCategory === null
                 ? "bg-gradient-to-r from-green-600 to-emerald-500 text-white shadow-lg"
                 : "bg-white text-gray-700 border-2 border-gray-200 hover:border-green-500"
@@ -359,7 +359,7 @@ export default function EventsPage() {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105 flex items-center gap-2 ${
+              className={`px-1 py-1.5 md:px-4 md:py-1 rounded-full font-medium transition-all duration-300 transform hover:scale-105 flex items-center gap-2 ${
                 selectedCategory === category
                   ? "bg-gradient-to-r from-green-600 to-emerald-500 text-white shadow-lg"
                   : "bg-white text-gray-700 border-2 border-gray-200 hover:border-green-500"
@@ -392,7 +392,7 @@ export default function EventsPage() {
                     key={event.id}
                     data-aos="fade-up"
                     data-aos-delay={index * 100}
-                    className="relative group pt-4 aspect-[3/4] md:pt-0 md:aspect-auto"
+                    className="relative group pt-4 aspect-[3/4]"
                   >
                     {/* 2. Tambahkan Frame SVG (z-20) */}
                     <div className="absolute inset-0 z-40 pointer-events-none">
@@ -405,7 +405,7 @@ export default function EventsPage() {
                   </div>
 
                   {/* Konten card di bawah frame */}
-                  <div className="relative z-10 h-full pt-4 pb-6 px-[15px] md:pt-15 md:pb-0 md:px-10 transition-transform duration-300 ease-in-out group-hover:scale-105">
+                  <div className="relative z-10 h-full pt-4 pb-6 px-[15px] md:pt-6 md:px-15 transition-transform duration-300 ease-in-out group-hover:scale-105">
                     <EventCard event={event} delay={0} isOngoing={true} />
                   </div>
                 </div>
@@ -483,7 +483,7 @@ export default function EventsPage() {
                     data-aos="fade-up"
                     data-aos-delay={index * 100}
                     // PERBAIKAN 1: Menyamakan className wrapper (menghapus overflow-visible, menambah h-full)
-                    className="relative group pt-4 aspect-[3/4] md:pt-0 md:aspect-auto"
+                    className="relative group pt-4 aspect-[3/4]"
 
                   >
                     {/* PERBAIKAN 2: Menambahkan <div> wrapper untuk Frame (z-40) */}
@@ -498,7 +498,7 @@ export default function EventsPage() {
                     </div>
 
                     {/* Konten card di bawah frame (z-30) */}
-                    <div className="relative z-10 h-full pt-4 pb-6 px-[15px] md:pt-15 md:pb-0 md:px-10 transition-transform duration-300 ease-in-out group-hover:scale-105">
+                    <div className="relative z-10 h-full pt-4 pb-6 px-[15px] md:pt-6 md:px-15 transition-transform duration-300 ease-in-out group-hover:scale-105">
                       <EventCard
                         event={event}
                         delay={0}

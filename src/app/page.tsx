@@ -21,7 +21,7 @@
       onToggle: () => void
     }) {
       return (
-        <div className="border border-gray-200 rounded-lg overflow-hidden hover:border-blue-300 transition-colors duration-300 bg-white">
+        <div className="border border-gray-200 rounded-lg  hover:border-blue-300 transition-colors duration-300 bg-white">
           <button
             onClick={onToggle}
             className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-blue-50 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
@@ -34,7 +34,7 @@
             />
           </button>
           <div
-            className={`transition-all duration-300 ease-in-out overflow-hidden ${
+            className={`transition-all duration-300 ease-in-out  ${
               isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
             }`}
           >
@@ -168,7 +168,7 @@
         <>
         <CustomPointer />
           {/* Hero Section dengan Image Carousel */}
-          <div className="relative text-white text-center py-20 md:py-40 overflow-hidden min-h-[60vh] md:min-h-[80vh] flex items-center justify-center">
+          <div className="relative text-white text-center py-20 md:py-40  min-h-[60vh] md:min-h-[80vh] flex items-center justify-center">
             {/* Gambar Latar Belakang Carousel */}
             <div className="absolute inset-0">
               {carouselImages.map((image, index) => (
@@ -251,7 +251,7 @@
           </div>
 
         {/* Bagian Tentang Kami (Visi & Misi) */}
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative overflow-hidden"> {/* Tambah overflow-hidden */}
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative "> {/* Tambah  */}
             
             {/* ... (Judul "Tentang Kami" dengan data-aos="fade-up") ... */}
             <div 
@@ -270,7 +270,7 @@
             <div className="mb-20 grid md:grid-cols-2 gap-12 items-center">
               {/* Gambar Visi */}
               <div 
-                className="order-2 md:order-1 relative w-full h-96 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
+                className="order-2 md:order-1 relative w-full h-96 rounded-2xl  shadow-lg hover:shadow-2xl transition-shadow duration-300"
                 data-aos="fade-right" // <-- AOS DARI KIRI
                 data-aos-delay="100"
               >
@@ -290,7 +290,7 @@
                 data-aos-delay="100"
               >
                 <div 
-                className="p-8 md:p-20 rounded-2xl shadow-lg border border-green-200 min-h-82 md:h-86 flex flex-col justify-center relative overflow-hidden bg-cover bg-center"
+                className="p-8 md:p-20 rounded-2xl shadow-lg border border-green-200 min-h-82 md:h-86 flex flex-col justify-center relative  bg-cover bg-center"
                 style={{
                   backgroundImage: "linear-gradient(to bottom right, #eff6ff, #dbeafe)"
                 }}
@@ -322,7 +322,7 @@
   
   {/* Gambar Misi --- POSISI BAWAH (MOBILE) / KANAN (DESKTOP) */}
   <div 
-    className="order-2 md:order-2 relative w-full h-96 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300" 
+    className="order-2 md:order-2 relative w-full h-96 rounded-2xl  shadow-lg hover:shadow-2xl transition-shadow duration-300" 
     data-aos="fade-left"
     data-aos-delay="100"
   >
@@ -342,7 +342,7 @@
     data-aos-delay="100"
   >
     <div 
-      className="p-8 md:p-20 rounded-2xl shadow-lg border border-green-200 min-h-82 md:h-86 flex flex-col justify-center relative overflow-hidden bg-cover bg-center"
+      className="p-8 md:p-20 rounded-2xl shadow-lg border border-green-200 min-h-82 md:h-86 flex flex-col justify-center relative  bg-cover bg-center"
       style={{
         backgroundImage: "linear-gradient(to bottom right,  #f0fdf4, #dcfce7)"
       }}
@@ -367,7 +367,7 @@
 
         {/* Bagian Mitra Kami */}
           <div 
-            className="bg-gradient-to-r from-blue-50 via-gray-50 to-green-50 py-16 md:py-24 overflow-hidden" // Tambahkan overflow-hidden
+            className="bg-gradient-to-r from-blue-50 via-gray-50 to-green-50 py-16 md:py-24 " // Tambahkan 
             data-aos="fade-up" // Tambahkan AOS ke seluruh section
           >
             
@@ -387,7 +387,7 @@
               data-aos="fade-in" // Animasi berbeda untuk slider bar
               data-aos-delay="200" // Delay sedikit setelah judul
             >
-              <div className="relative w-full h-48 overflow-hidden group">
+              <div className="relative w-full h-48  group">
                 <div
                   className="flex items-center gap-12 h-full absolute left-0 group-hover:[animation-play-state:paused]"
                   style={{
@@ -398,7 +398,7 @@
                   {/* Gambar pertama (loop 1) */}
                   {partnerImages.map((image, index) => (
                     <div
-                      className="w-[360px] h-full flex justify-center items-center overflow-hidden flex-shrink-0"
+                      className="w-[360px] h-full flex justify-center items-center  flex-shrink-0"
                       key={`orig-${index}`}
                     >
                       <Image
@@ -413,7 +413,7 @@
                   {/* Gambar duplikat untuk infinite loop (loop 2) */}
                   {partnerImages.map((image, index) => (
                     <div
-                      className="w-[360px] h-full flex justify-center items-center overflow-hidden flex-shrink-0"
+                      className="w-[360px] h-full flex justify-center items-center  flex-shrink-0"
                       key={`dup-${index}`}
                     >
                       <Image
@@ -446,8 +446,8 @@
             </div>
             
             {/* Grid Testimoni */}
-            {/* Tambahkan overflow-hidden ke container jika perlu untuk mencegah scrollbar horizontal saat animasi */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 overflow-hidden"> 
+            {/* Tambahkan  ke container jika perlu untuk mencegah scrollbar horizontal saat animasi */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 "> 
               {testimonials.map((testimonial, index) => (
                 <div
                   key={index}
@@ -459,7 +459,7 @@
                   {/* Perbaikan: Gunakan HTML entity untuk tanda kutip */}
                   <p className="text-gray-700 mb-6 leading-relaxed italic flex-grow">&quot;{testimonial.text}&quot;</p>
                   <div className="flex items-center gap-4 mt-auto pt-4 border-t border-gray-100">
-                    <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                    <div className="relative w-12 h-12 rounded-full  flex-shrink-0">
                       <Image
                         src={testimonial.image || "/placeholder.svg"}
                         alt={testimonial.name}
@@ -479,8 +479,8 @@
           </div>
 
           {/* Bagian Peta Lokasi */}
-          {/* Tambahkan 'overflow-hidden' di sini untuk mencegah scrollbar horizontal saat animasi */}
-          <div className="bg-gray-100 py-16 md:py-24 overflow-hidden">
+          {/* Tambahkan '' di sini untuk mencegah scrollbar horizontal saat animasi */}
+          <div className="bg-gray-100 py-16 md:py-24 ">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 
@@ -521,7 +521,7 @@
                 
                 {/* Peta Embed */}
                 <div 
-                  className="rounded-2xl shadow-2xl overflow-hidden w-full h-96 md:h-[500px]"
+                  className="rounded-2xl shadow-2xl  w-full h-96 md:h-[500px]"
                   data-aos="fade-left" // <-- Animasi muncul dari kanan
                   data-aos-delay="100"
                 >

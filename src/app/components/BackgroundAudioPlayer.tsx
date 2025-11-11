@@ -61,7 +61,7 @@ export default function BackgroundAudioPlayer({ src }: BackgroundAudioPlayerProp
         preload="auto"
       />
 
-      <div className="fixed bottom-4 right-4 z-50">
+      <div className="fixed bottom-4 right-4 z-40">
         {/* [UBAH] Glow effect sekarang beranimasi RGB terus-menerus */}
         <div
           className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur-xl -z-10 animate-rgb-border

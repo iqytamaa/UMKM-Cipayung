@@ -18,10 +18,10 @@ export default function UMKMCard({ umkm }: UMKMCardProps) {
     // 4. Tambahkan className="block h-full" ke Link
     <Link href={`/umkm/${umkm.id}`} className="block h-full">
       {/* 5. Pastikan div ini memiliki h-full dan flex-col */}
-      <div className="group relative h-full flex flex-col bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1 border border-gray-100 hover:border-blue-200">
+      <div className="group relative h-full flex flex-col bg-white rounded-xl  shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1 border border-gray-100 hover:border-blue-200">
         
         {/* Image Container */}
-        <div className="relative h-48 overflow-hidden bg-gray-100"> 
+        <div className="relative h-48  bg-gray-100"> 
           <Image
             src={umkm.gallery?.[0] || "/placeholder.svg"} // Akses galeri dengan aman
             alt={`Foto ${umkm.name}`}
@@ -36,7 +36,7 @@ export default function UMKMCard({ umkm }: UMKMCardProps) {
           ></div>
 
          {/* Category Badge */}
-          <div className="absolute top-15 md:top-20 right-1 z-20">
+          <div className="absolute top-12 md:top-40 right-1 z-20">
             <span
               className={`${colors.badge} text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg`}
             >
@@ -46,8 +46,8 @@ export default function UMKMCard({ umkm }: UMKMCardProps) {
           
           {/* Promo Badge */}
           {umkm.promo && (
-            <div className="absolute top-15 md:top-20 left-1 z-20"> 
-              <span className="bg-red-500 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-lg animate-pulse z-40">
+            <div className="absolute top-12 md:top-5 left-1 z-20"> 
+              <span className="bg-red-500 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg animate-pulse z-40">
                 PROMO
               </span>
             </div>

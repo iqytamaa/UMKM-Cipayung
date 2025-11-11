@@ -165,6 +165,7 @@ export default function BeritaPage() {
 </div>
 
       {/* Filter Section */}
+      
       <div
         className="container mx-auto px-4 sm:px-6 lg:px-8 py-12"
         data-aos="fade-up" // 5. Tambahkan AOS di sini
@@ -172,10 +173,10 @@ export default function BeritaPage() {
        {/* ... di dalam Filter Section ... */}
 
 {/* INI BARIS YANG BARU */}
-<div className="flex flex-nowrap gap-3 overflow-x-auto mb-10 pb-4">
+<div className="flex flex-nowrap justify-center gap-3 overflow-x-auto mb-10 pb-4">
           <button
             onClick={() => setSelectedCategory(null)}
-            className={`px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105 flex items-center gap-2 ${
+            className={`px-8 py-1 dan md:px-6 md:py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105 flex items-center gap-2 ${
               selectedCategory === null
                 ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg"
                 : "bg-white text-gray-700 border-2 border-gray-200 hover:border-blue-500"
@@ -187,7 +188,7 @@ export default function BeritaPage() {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105 flex items-center gap-2 ${
+              className={`px-1.5 py-1 md:px-4 md:py-1 rounded-full font-medium transition-all duration-300 transform hover:scale-105 flex items-center gap-2 ${
                 selectedCategory === category
                   ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg"
                   : "bg-white text-gray-700 border-2 border-gray-200 hover:border-blue-500"
@@ -209,7 +210,7 @@ export default function BeritaPage() {
       <div 
         data-aos="fade-up" 
         data-aos-delay={index * 100}
-        className="relative group pt-10 aspect-[3/4] md:pt-0 md:aspect-auto"
+        className="relative group pt-10 aspect-[3/4]"
       >
         <Image
           src="/Berita/frame.svg" 
@@ -219,7 +220,7 @@ export default function BeritaPage() {
           className="z-20 transition-transform duration-300 ease-in-out group-hover:scale-105 pointer-events-none" 
         />
 
-        <div className="relative z-10 h-full pt-7 pb-2 px-0 md:pt-8 md:pb-1 md:px-12 transition-transform duration-300 ease-in-out group-hover:scale-105"> 
+        <div className="relative z-10 h-full pt-7 pb-2 px-0 md:pt-6 md:px-15 transition-transform duration-300 ease-in-out group-hover:scale-105"> 
           <ArticleCard article={article} delay={0} />
         </div>
       </div>

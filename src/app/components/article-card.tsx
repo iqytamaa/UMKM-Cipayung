@@ -36,10 +36,10 @@ export default function ArticleCard({ article }: ArticleCardProps) {
       className="group cursor-pointer block h-full" // Tambah h-full
     >
       {/* 6. Tambah 'flex flex-col h-full' agar kartu memiliki tinggi yang sama */}
-      <div className="relative h-full flex flex-col bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+      <div className="relative h-full flex flex-col bg-white rounded-2xl  shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
         
         {/* Image Container */}
-        <div className="relative h-48 w-full overflow-hidden bg-gray-100">
+        <div className="relative h-48 w-full  bg-gray-100">
           <div
             className={`absolute inset-0 bg-gradient-to-br ${article.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500 z-10`}
           ></div>
@@ -52,7 +52,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
             className="object-contain transition-transform duration-500 group-hover:scale-105" 
           />
           
-          <div className="absolute top-4 right-4 z-20">
+          <div className="absolute top-20 right-1 md:top-36 md:right-4 z-20">
             <span
               className={`inline-block px-4 py-2 rounded-full text-sm font-bold text-white bg-gradient-to-r ${article.color} shadow-lg`}
             >

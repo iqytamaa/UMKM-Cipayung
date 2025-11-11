@@ -92,7 +92,7 @@ export default function EventRegistrationModal({ event, isOpen, onClose }: Event
   return (
     // Modal Overlay - Handles centering and background dimming
     <div
-      className={`fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4 transition-opacity duration-300 ease-in-out ${
+      className={`fixed inset-0 bg-black bg-opacity-60 z-40 flex items-center justify-center p-4 transition-opacity duration-300 ease-in-out ${
         isOpen ? "opacity-100" : "opacity-0 pointer-events-none" // Use pointer-events-none when hidden
       }`}
       onClick={onClose} // Close modal if overlay is clicked
