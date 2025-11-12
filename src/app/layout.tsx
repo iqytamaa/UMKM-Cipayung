@@ -67,17 +67,6 @@ export default function RootLayout({
           
         )}
 
-        {/* 10. Tambahkan keyframes untuk animasi fade-in */}
-        <style jsx global>{`
-          @keyframes fade-in-layout {
-            from { opacity: 0; }
-            to { opacity: 1; }
-          }
-          .animate-fade-in-layout {
-            animation: fade-in-layout 0.6s ease-out forwards;
-          }
-        `}</style>
-
       </body>
     </html>
   )
