@@ -8,8 +8,8 @@ import Image from "next/image"
 import Link from "next/link"
 import AOS from "aos"
 import "aos/dist/aos.css"
-// import CustomPointer from "@/app/components/CustomPointer" // Anda bisa uncomment ini jika path-nya benar
-// import BackgroundAudioPlayer from "@/app/components/BackgroundAudioPlayer" // Anda bisa uncomment ini jika path-nya benar
+import CustomPointer from "@/app/components/CustomPointer" // <-- DIKEMBALIKAN
+import BackgroundAudioPlayer from "@/app/components/BackgroundAudioPlayer" // <-- DIKEMBALIKAN
 
 // --- Data Kuis ---
 const quizData = [
@@ -169,9 +169,11 @@ export default function GamesPage() {
   return (
     // overflow-x-hidden ditambahkan untuk mengatasi 'jebol' dari animasi
     <div className="min-h-screen bg-gray-900 overflow-x-hidden">
-      <MouseFollower />
+      {/* <MouseFollower /> // CustomPointer sudah ada di layout global, jadi ini bisa dihapus jika duplikat */}
+      <CustomPointer /> {/* <-- DIKEMBALIKAN */}
 
-      {/* <BackgroundAudioPlayer src="/music/background-music.mp3" /> // Anda bisa uncomment ini */}
+      {/* === MEMANGGIL KEMBALI PEMUTAR MUSIK === */}
+      <BackgroundAudioPlayer src="/music/background-music.mp3" />
 
       {/* Header Section (Full Page) */}
       <section
@@ -326,7 +328,7 @@ export default function GamesPage() {
         @keyframes fade-in {
           from {
             opacity: 0;
-            transform: translateY(180px);
+            transform: translateY(10px);
           }
           to {
             opacity: 1;
@@ -340,7 +342,7 @@ export default function GamesPage() {
           text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.6);
         }
 
-        /* === KEYFRAMES BARU UNTUK FIREFLY (LEBIH BAIK) === */
+        /* === KEYFRAMES DENGAN JARAK LEBIH JAUH === */
         @keyframes firefly-move-0 {
           0%,
           100% {
@@ -348,15 +350,15 @@ export default function GamesPage() {
             opacity: 0.5;
           }
           25% {
-            transform: translate(5px, -10px) scale(1.1);
+            transform: translate(15px, -30px) scale(1.1);
             opacity: 1;
           }
           50% {
-            transform: translate(10px, 10px) scale(0.9);
+            transform: translate(30px, 30px) scale(0.9);
             opacity: 0.7;
           }
           75% {
-            transform: translate(5px, 15px) scale(1);
+            transform: translate(15px, 45px) scale(1);
             opacity: 1;
           }
         }
@@ -367,15 +369,15 @@ export default function GamesPage() {
             opacity: 0.6;
           }
           25% {
-            transform: translate(-10px, 15px) scale(1.2);
+            transform: translate(-30px, 45px) scale(1.2);
             opacity: 1;
           }
           50% {
-            transform: translate(-15px, -5px) scale(1);
+            transform: translate(-45px, -15px) scale(1);
             opacity: 0.8;
           }
           75% {
-            transform: translate(-5px, -10px) scale(1.1);
+            transform: translate(-15px, -30px) scale(1.1);
             opacity: 1;
           }
         }
@@ -386,15 +388,15 @@ export default function GamesPage() {
             opacity: 0.7;
           }
           25% {
-            transform: translate(15px, 10px) scale(1.1);
+            transform: translate(45px, 30px) scale(1.1);
             opacity: 1;
           }
           50% {
-            transform: translate(5px, -10px) scale(1);
+            transform: translate(15px, -30px) scale(1);
             opacity: 0.7;
           }
           75% {
-            transform: translate(10px, 5px) scale(1.2);
+            transform: translate(30px, 15px) scale(1.2);
             opacity: 1;
           }
         }
@@ -405,15 +407,15 @@ export default function GamesPage() {
             opacity: 0.5;
           }
           25% {
-            transform: translate(-5px, -15px) scale(1);
+            transform: translate(-15px, -45px) scale(1);
             opacity: 1;
           }
           50% {
-            transform: translate(-10px, 0px) scale(1.1);
+            transform: translate(-30px, 0px) scale(1.1);
             opacity: 0.6;
           }
           75% {
-            transform: translate(-15px, 10px) scale(1);
+            transform: translate(-45px, 30px) scale(1);
             opacity: 1;
           }
         }
@@ -424,15 +426,15 @@ export default function GamesPage() {
             opacity: 0.8;
           }
           25% {
-            transform: translate(10px, 10px) scale(1);
+            transform: translate(30px, 30px) scale(1);
             opacity: 1;
           }
           50% {
-            transform: translate(15px, -5px) scale(1.2);
+            transform: translate(45px, -15px) scale(1.2);
             opacity: 0.7;
           }
           75% {
-            transform: translate(5px, -10px) scale(1);
+            transform: translate(15px, -30px) scale(1);
             opacity: 1;
           }
         }
@@ -443,15 +445,15 @@ export default function GamesPage() {
             opacity: 0.6;
           }
           25% {
-            transform: translate(-10px, -5px) scale(1.1);
+            transform: translate(-30px, -15px) scale(1.1);
             opacity: 1;
           }
           50% {
-            transform: translate(-5px, 10px) scale(0.9);
+            transform: translate(-15px, 30px) scale(0.9);
             opacity: 0.8;
           }
           75% {
-            transform: translate(-15px, 5px) scale(1);
+            transform: translate(-45px, 15px) scale(1);
             opacity: 1;
           }
         }
