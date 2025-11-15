@@ -69,7 +69,7 @@ export default function UMKMPage() {
 
   return (
 
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-gray-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-gray-50 to-white overflow-x-hidden">
   {/* Hero Section */}
 
   <div data-aos="fade-in" className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 md:py-20 ">

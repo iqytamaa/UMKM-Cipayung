@@ -296,7 +296,7 @@ export default function EventsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white overflow-x-hidden">
       <CustomPointer />
       {/* Hero Section (Sudah diubah ke Gradasi Biru, Rata Kiri, + Gambar) */}
       <div className="relative overflow-hidden bg-gradient-to-r from-indigo-600 via-blue-600 to-blue-500 py-16 md:py-20">

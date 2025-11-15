@@ -165,7 +165,7 @@
       }
 
       return (
-        <>
+        <div className="overflow-x-hidden">
         <CustomPointer />
           {/* Hero Section dengan Image Carousel */}
           <div className="relative text-white text-center py-20 md:py-40  min-h-[60vh] md:min-h-[80vh] flex items-center justify-center">
@@ -601,7 +601,7 @@
               }
             }
           `}</style>
-        </>
+       </div>
       )
     } 
     

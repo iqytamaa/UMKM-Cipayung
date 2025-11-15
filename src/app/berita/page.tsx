@@ -120,7 +120,7 @@ export default function BeritaPage() {
     : articles
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white overflow-x-hidden">
       <CustomPointer />
       {/* Hero Section (Memiliki animasi bawaan 'animate-fade-in') */}
       <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 py-16 sm:py-20">
