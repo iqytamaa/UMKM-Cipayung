@@ -2,7 +2,21 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { MapPin, Phone, Mail, Facebook, Instagram, Twitter } from "lucide-react"
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Facebook,
+  Instagram,
+  Twitter,
+  Home,
+  Store,
+  Newspaper,
+  Calendar,
+  UserPlus,
+  FileText,
+  PhoneCall,
+} from "lucide-react"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -19,98 +33,113 @@ export default function Footer() {
 
       {/* Main Footer Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
           {/* Brand Section */}
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4 group">
               <div className="relative w-12 h-12 transform group-hover:scale-110 transition-transform duration-300">
-                <Image src="/Logo/logo.png" alt="Logo TemuCipayung" fill sizes="40px" className="object-contain" />
+                <Image
+                  src="/Logo/logo.png"
+                  alt="Logo TemuCipayung"
+                  fill
+                  sizes="40px"
+                  className="object-contain"
+                />
               </div>
-              <span className="text-lg font-bold">
-                <span className="text-blue-400">Temu</span>
-                <span className="text-green-400">Cipayung</span>
+              <span className="text-lg font-bold text-blue-400">
+                <span>Temu</span>
+                <span>Cipayung</span>
               </span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Platform direktori UMKM untuk memberdayakan bisnis lokal di Setu, Cipayung.
+              Platform direktori UMKM untuk memberdayakan bisnis lokal di Setu,
+              Cipayung.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4 text-glow">Menu Utama</h3>
+            <h3 className="text-white font-semibold mb-4 text-glow flex items-center gap-2">
+              <Home size={18} className="text-blue-400" />
+              Menu Utama
+            </h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm hover:translate-x-1 inline-block"
+                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm hover:translate-x-1 inline-flex items-center gap-2 group"
                 >
+                  <Home size={14} className="text-green-400" />
                   Beranda
                 </Link>
               </li>
               <li>
                 <Link
                   href="/umkm"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm hover:translate-x-1 inline-block"
+                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm hover:translate-x-1 inline-flex items-center gap-2 group"
                 >
+                  <Store size={14} className="text-green-400" />
                   Direktori UMKM
                 </Link>
               </li>
               <li>
                 <Link
                   href="/berita"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm hover:translate-x-1 inline-block"
+                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm hover:translate-x-1 inline-flex items-center gap-2 group"
                 >
+                  <Newspaper size={14} className="text-green-400" />
                   Berita & Artikel
                 </Link>
               </li>
               <li>
                 <Link
                   href="/events"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm hover:translate-x-1 inline-block"
+                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm hover:translate-x-1 inline-flex items-center gap-2 group"
                 >
+                  <Calendar size={14} className="text-green-400" />
                   Event & Acara
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Information */}
           <div>
-            <h3 className="text-white font-semibold mb-4 text-glow">Informasi</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/panduan-daftar"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm hover:translate-x-1 inline-block"
-                >
-                  Panduan Daftar
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm hover:translate-x-1 inline-block"
-                >
-                  Tentang Kami
-                </Link>
-              </li>
-            </ul>
+            <h3 className="text-white font-semibold mb-4 text-glow flex items-center gap-2">
+              <UserPlus size={18} className="text-blue-400" />
+              Usaha Anda
+            </h3>
+            <Link
+              href="/panduan-daftar"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm font-medium mb-4"
+            >
+              <FileText size={16} />
+              Daftarkan Usahamu
+            </Link>
+            <p className="text-gray-400 text-xs leading-relaxed">
+              Bergabunglah dengan ribuan UMKM lainnya dan perluas jangkauan bisnis
+              Anda di komunitas TemuCipayung.
+            </p>
           </div>
 
           {/* Contact */}
-          <div>
-            <h3 className="text-white font-semibold mb-4 text-glow">Hubungi Kami</h3>
+          <div className="md:col-span-2">
+            <h3 className="text-white font-semibold mb-4 text-glow flex items-center gap-2">
+              <PhoneCall size={18} className="text-blue-400" />
+              Hubungi Kami
+            </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <MapPin size={18} className="text-green-400 mt-0.5 flex-shrink-0" />
+                <MapPin
+                  size={18}
+                  className="text-blue-400 mt-0.5 flex-shrink-0"
+                />
                 <span className="text-gray-400 text-sm">
-                  Jl. Raya Setu No.8 5, RT.5/RW.1, Setu, Kec. Cipayung, Kota Jakarta Timur, Daerah Khusus Ibukota
-                  Jakarta 13880
+                  Jl. Raya Setu No.8 5, RT.5/RW.1, Setu, Kec. Cipayung, Kota
+                  Jakarta Timur, Daerah Khusus Ibukota Jakarta 13880
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone size={18} className="text-green-400 flex-shrink-0" />
+                <Phone size={18} className="text-blue-400 flex-shrink-0" />
                 <a
                   href="tel:+62212345678"
                   className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm"
@@ -119,12 +148,16 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={18} className="text-green-400 flex-shrink-0" />
+                <Mail size={18} className="text-blue-400 flex-shrink-0" />
+                {/* --- PERUBAHAN DI SINI --- */}
                 <a
-                  href="mailto:info@temucipayung.com"
+                  // Link ke Gmail compose dengan email dummy
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=email@contoh.com"
+                  target="_blank" // Buka di tab baru
+                  rel="noopener noreferrer" // Praktik keamanan standar
                   className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm"
                 >
-                  temucipayung@gmail.com
+                  info@temucipayung.com {/* Teks yang tampil */}
                 </a>
               </li>
             </ul>
@@ -140,28 +173,33 @@ export default function Footer() {
             © {currentYear} TemuCipayung. Dibuat untuk Multimedia in Action 2025.
           </p>
 
-          {/* Social Links */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
             <a
-              href="#"
-              className="text-gray-400 hover:text-blue-400 transition-all duration-300 hover:scale-125"
+              href="https://www.facebook.com/temucipayung"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 transition-all duration-300 hover:scale-125"
               aria-label="Facebook"
             >
-              <Facebook size={20} />
+              <Facebook size={24} />
             </a>
             <a
-              href="#"
-              className="text-gray-400 hover:text-blue-400 transition-all duration-300 hover:scale-125"
+              href="https://www.instagram.com/temucipayung"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-pink-500 transition-all duration-300 hover:scale-125"
               aria-label="Instagram"
             >
-              <Instagram size={20} />
+              <Instagram size={24} />
             </a>
             <a
-              href="#"
-              className="text-gray-400 hover:text-blue-400 transition-all duration-300 hover:scale-125"
+              href="https://twitter.com/temucipayung"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sky-400 transition-all duration-300 hover:scale-125"
               aria-label="Twitter"
             >
-              <Twitter size={20} />
+              <Twitter size={24} />
             </a>
           </div>
         </div>
