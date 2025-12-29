@@ -1,8 +1,8 @@
 "use client"
 
 import type React from "react"
-import { useState, useRef } from "react"
-// [TAMBAH] Impor ikon 'Music'
+import { useState, useRef, useEffect } from "react"
+import { createPortal } from "react-dom" 
 import { Play, Pause, Volume2, VolumeX } from "lucide-react"
 
 interface BackgroundAudioPlayerProps {
@@ -10,12 +10,34 @@ interface BackgroundAudioPlayerProps {
 }
 
 export default function BackgroundAudioPlayer({ src }: BackgroundAudioPlayerProps) {
-  // State untuk play/pause, mute, dan volume
+  const audioRef = useRef<HTMLAudioElement>(null)
+  
+  // State
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
   const [volume, setVolume] = useState(1)
+  const [mounted, setMounted] = useState(false) 
 
-  const audioRef = useRef<HTMLAudioElement>(null)
+  useEffect(() => {
+    setMounted(true) 
+    
+    const audio = audioRef.current
+    if (audio) {
+        audio.volume = volume;
+        
+        const playPromise = audio.play()
+        if (playPromise !== undefined) {
+            playPromise
+            .then(() => {
+                setIsPlaying(true)
+            })
+            .catch((error) => {
+                console.log("Autoplay dicegah browser:", error)
+                setIsPlaying(false)
+            })
+        }
+    }
+  }, [volume])
 
   const togglePlayPause = () => {
     if (!audioRef.current) return
@@ -52,8 +74,11 @@ export default function BackgroundAudioPlayer({ src }: BackgroundAudioPlayerProp
     }
   }
 
-  return (
-    <>
+  if (!mounted) return null;
+
+  const playerContent = (
+    <div className="fixed bottom-6 right-6 z-[9999] animate-fade-in-up">
+      {/* Audio Element (Hidden) */}
       <audio
         ref={audioRef}
         src={src}
@@ -61,84 +86,75 @@ export default function BackgroundAudioPlayer({ src }: BackgroundAudioPlayerProp
         preload="auto"
       />
 
-      <div className="fixed bottom-4 right-4 z-40">
-        {/* [UBAH] Glow effect sekarang beranimasi RGB terus-menerus */}
-        <div
-          className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur-xl -z-10 animate-rgb-border
-          ${
-            // Efek 'bernapas' (pulse) tetap ada saat 'isPlaying'
-            isPlaying ? "scale-105 opacity-80" : "scale-95 opacity-50"
-          } 
-          transition-all duration-1000`}
-        ></div>
+      {/* Glow Effect */}
+      <div
+        className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full blur-xl -z-10 animate-rgb-border
+        ${isPlaying ? "scale-110 opacity-80" : "scale-95 opacity-40"} 
+        transition-all duration-1000`}
+      ></div>
 
-        {/* [UBAH] Kotak pemutar utama juga diberi animasi 'animate-rgb-border' */}
-        <div className="relative p-1.5 bg-gradient-to-br from-slate-900/90 via-slate-800/90 to-slate-900/90 backdrop-blur-xl rounded-2xl text-white shadow-2xl border border-cyan-500/30 hover:border-cyan-500/50 transition-all duration-300 animate-rgb-border">
+      {/* Main Player Box (Full Width Always) */}
+      <div className="relative flex items-center gap-3 p-2 pl-3 pr-4 bg-slate-900/90 backdrop-blur-md rounded-full border border-cyan-500/30 shadow-2xl transition-all hover:bg-slate-800/90">
+        
+        {/* Tombol Play/Pause */}
+        <button
+          onClick={togglePlayPause}
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-white shadow-lg hover:scale-110 active:scale-95 transition-all duration-300"
+          title={isPlaying ? "Pause" : "Play"}
+        >
+          {isPlaying ? (
+            <Pause className="w-4 h-4 fill-current" />
+          ) : (
+            <Play className="w-4 h-4 fill-current ml-0.5" />
+          )}
+        </button>
+
+        {/* Divider Kecil */}
+        <div className="w-px h-6 bg-white/10 mx-1"></div>
+
+        {/* Kontrol Volume & Mute (Selalu Terlihat) */}
+        <div className="flex items-center gap-3">
+          <button
+            onClick={toggleMute}
+            className="text-gray-400 hover:text-cyan-400 transition-colors"
+            title={isMuted ? "Unmute" : "Mute"}
+          >
+            {isMuted || volume === 0 ? <VolumeX size={18} /> : <Volume2 size={18} />}
+          </button>
           
-
-          {/* Controls */}
-          <div className="flex items-center gap-2">
-            {/* Play/Pause Button */}
-            <button
-              onClick={togglePlayPause}
-              className="p-1.5 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50 hover:scale-110 active:scale-95"
-              title={isPlaying ? "Pause" : "Play"}
-            >
-              {isPlaying ? <Pause className="w-4 h-4 fill-white" /> : <Play className="w-4 h-4 fill-white" />}
-            </button>
-
-            {/* Mute/Unmute Button */}
-            <button
-              onClick={toggleMute}
-              className="p-1.5 rounded-full hover:bg-cyan-500/20 transition-all duration-300 hover:text-cyan-300"
-              title={isMuted ? "Unmute" : "Mute"}
-            >
-              {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
-            </button>
-
-            {/* Volume Slider */}
-            <input
-              type="range"
-              min="0"
-              max="1"
-              step="0.01"
-              value={volume}
-              onChange={handleVolumeChange}
-              className={`w-16 h-1.5 bg-gradient-to-r from-slate-700 to-slate-600 rounded-full appearance-none accent-cyan-400 cursor-pointer hover:accent-cyan-300 transition-all ${
-                isMuted ? "opacity-50" : ""
-              }`}
-            />
-
-            {/* Volume percentage */}
-            <span
-              className={`text-[0.6rem] text-cyan-300/70 w-7 text-right transition-all ${
-                isMuted ? "opacity-50" : ""
-              }`}
-            >
-              {Math.round(volume * 100)}%
-            </span>
-          </div>
-
-          {/* Animated border glow (efek hover ini tidak perlu diubah) */}
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/0 via-cyan-500/10 to-blue-500/0 opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value={volume}
+            onChange={handleVolumeChange}
+            className="w-24 h-1 bg-slate-700 rounded-full appearance-none cursor-pointer accent-cyan-500 hover:accent-cyan-400 transition-all"
+            title={`Volume: ${Math.round(volume * 100)}%`}
+          />
         </div>
       </div>
 
-      {/* [UBAH] CSS untuk animasi 'rgb-border' baru (lebih lambat) */}
-      <style jsx global>{`
+      {/* CSS Lokal */}
+      <style jsx>{`
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out forwards;
+            animation-delay: 1s;
+        }
         @keyframes rgb-border {
-          0% {
-            filter: hue-rotate(0deg);
-          }
-          100% {
-            filter: hue-rotate(360deg);
-          }
+          0% { filter: hue-rotate(0deg); }
+          100% { filter: hue-rotate(360deg); }
         }
         .animate-rgb-border {
-          /* Animasi berputar 6 detik, linear, dan tak terbatas */
           animation: rgb-border 6s linear infinite;
         }
       `}</style>
-    </>
-  )
+    </div>
+  );
+
+  return createPortal(playerContent, document.body);
 }

@@ -17,9 +17,14 @@ import {
   FileText,
   PhoneCall,
 } from "lucide-react"
+// 1. Import Hooks Bahasa
+import { useLanguage } from "@/app/context/LanguageContext"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  
+  // 2. Panggil hooks
+  const { t } = useLanguage()
 
   return (
     <footer className="w-full bg-gradient-to-b from-gray-900 via-slate-900 to-black text-gray-100 relative overflow-hidden">
@@ -51,9 +56,9 @@ export default function Footer() {
                 <span>Cipayung</span>
               </span>
             </Link>
+            {/* Translate Deskripsi Brand */}
             <p className="text-gray-400 text-sm leading-relaxed">
-              Platform direktori UMKM untuk memberdayakan bisnis lokal di Setu,
-              Cipayung.
+              {t('footer_desc')}
             </p>
           </div>
 
@@ -61,7 +66,7 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4 text-glow flex items-center gap-2">
               <Home size={18} className="text-blue-400" />
-              Menu Utama
+              {t('footer_menu_main')}
             </h3>
             <ul className="space-y-2">
               <li>
@@ -70,7 +75,7 @@ export default function Footer() {
                   className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm hover:translate-x-1 inline-flex items-center gap-2 group"
                 >
                   <Home size={14} className="text-green-400" />
-                  Beranda
+                  {t('footer_link_home')}
                 </Link>
               </li>
               <li>
@@ -79,7 +84,7 @@ export default function Footer() {
                   className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm hover:translate-x-1 inline-flex items-center gap-2 group"
                 >
                   <Store size={14} className="text-green-400" />
-                  Direktori UMKM
+                  {t('footer_link_umkm')}
                 </Link>
               </li>
               <li>
@@ -88,7 +93,7 @@ export default function Footer() {
                   className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm hover:translate-x-1 inline-flex items-center gap-2 group"
                 >
                   <Newspaper size={14} className="text-green-400" />
-                  Berita & Artikel
+                  {t('footer_link_news')}
                 </Link>
               </li>
               <li>
@@ -97,7 +102,7 @@ export default function Footer() {
                   className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm hover:translate-x-1 inline-flex items-center gap-2 group"
                 >
                   <Calendar size={14} className="text-green-400" />
-                  Event & Acara
+                  {t('footer_link_events')}
                 </Link>
               </li>
             </ul>
@@ -106,18 +111,17 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4 text-glow flex items-center gap-2">
               <UserPlus size={18} className="text-blue-400" />
-              Usaha Anda
+              {t('footer_section_business')}
             </h3>
             <Link
               href="/panduan-daftar"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm font-medium mb-4"
             >
               <FileText size={16} />
-              Daftarkan Usahamu
+              {t('footer_btn_register')}
             </Link>
             <p className="text-gray-400 text-xs leading-relaxed">
-              Bergabunglah dengan ribuan UMKM lainnya dan perluas jangkauan bisnis
-              Anda di komunitas TemuCipayung.
+              {t('footer_business_desc')}
             </p>
           </div>
 
@@ -125,7 +129,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <h3 className="text-white font-semibold mb-4 text-glow flex items-center gap-2">
               <PhoneCall size={18} className="text-blue-400" />
-              Hubungi Kami
+              {t('footer_contact')}
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
@@ -149,7 +153,6 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-blue-400 flex-shrink-0" />
-                {/* --- PERUBAHAN DI SINI --- */}
                 <a
                   // Link ke Gmail compose dengan email dummy
                   href="https://mail.google.com/mail/?view=cm&fs=1&to=email@contoh.com"
@@ -157,7 +160,7 @@ export default function Footer() {
                   rel="noopener noreferrer" // Praktik keamanan standar
                   className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm"
                 >
-                  info@temucipayung.com {/* Teks yang tampil */}
+                  info@temucipayung.com
                 </a>
               </li>
             </ul>
@@ -170,7 +173,7 @@ export default function Footer() {
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-400 text-sm text-center md:text-left">
-            © {currentYear} TemuCipayung. Dibuat untuk Multimedia in Action 2025.
+            © {currentYear} TemuCipayung. {t('footer_copyright')}
           </p>
 
           <div className="flex items-center gap-6">

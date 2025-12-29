@@ -1,33 +1,54 @@
-// File: src/data/umkm.ts
-
-// 1. TAMBAHKAN DAN EKSPOR TIPE KATEGORI INI
+// 1. TIPE KATEGORI (Tetap gunakan ID internal bahasa Indonesia agar konsisten)
 export type UmkmCategory = "Kuliner" | "Fashion" | "Jasa & Lainnya";
 
-// 2. PERBARUI INTERFACE UmkmData
+// 2. INTERFACE DIPERBARUI (Menambahkan field _en untuk bahasa Inggris)
 export interface UmkmData {
   id: number | string;
   gallery: string[];
   name: string;
-  category: UmkmCategory; // <-- DIUBAH DARI 'string'
-  description: string;
+  category: UmkmCategory;
+  
+  // Deskripsi dua bahasa
+  description: string;      // Indonesia
+  description_en: string;   // Inggris
+
   address: string;
   rating: number;
   reviews: number;
   mapEmbedUrl: string;
+  
+  // Promo dua bahasa
   promo?: string;
-  menu?: { name: string; price: number }[];
-  reviews_data?: { name: string; rating: number; text: string }[];
+  promo_en?: string;
+
+  // Menu dua bahasa (Opsional: bisa buat menu_en terpisah jika nama menu beda jauh)
+  menu?: { name: string; price: number }[]; 
+  
+  // Review dua bahasa
+  reviews_data?: { name: string; rating: number; text: string; text_en: string }[];
 }
 
-// Data UMKM Setu Cipayung, Jakarta Timur (6 per Kategori)
+// 3. LIST KATEGORI
+export const categories: UmkmCategory[] = ["Kuliner", "Fashion", "Jasa & Lainnya"];
+
+// 4. WARNA KATEGORI
+export const categoryColors: Record<UmkmCategory, { from: string; to: string; badge: string }> = {
+  Kuliner: { from: "from-green-400", to: "to-green-600", badge: "bg-gradient-to-r from-green-400 to-green-600" },
+  Fashion: { from: "from-pink-400", to: "to-purple-500", badge: "bg-pink-500" },
+  "Jasa & Lainnya": { from: "from-blue-400", to: "to-cyan-500", badge: "bg-blue-500" },
+};
+
+// ==========================================================================
+// DATA UMKM (SUDAH DITRANSLATE)
+// ==========================================================================
 export const umkmData: UmkmData[] = [
-  // Kategori: Kuliner (6)
+  // === Kategori: Kuliner ===
   {
     id: 1,
     name: "Assyiik Resto",
     category: "Kuliner",
-    description:
-      "Restoran semi-outdoor. Spesialis masakan Indonesia seperti ikan bakar dan soto.",
+    description: "Restoran semi-outdoor. Spesialis masakan Indonesia seperti ikan bakar dan soto.",
+    description_en: "Semi-outdoor restaurant. Specializing in Indonesian cuisine such as grilled fish and soto.",
     address: "Jl. Setu Cipayung Timur, RT.5/RW.1, Setu, Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/Asyiik/1.jpg", "/UMKM/Asyiik/2.jpg", "/UMKM/Asyiik/3.jpg",
@@ -37,22 +58,23 @@ export const umkmData: UmkmData[] = [
     rating: 4.8,
     reviews: 156,
     promo: "Diskon 10% Makan Siang",
+    promo_en: "10% Lunch Discount",
     menu: [
       { name: "Ikan Bakar Spesial", price: 85000 },
       { name: "Soto Betawi", price: 35000 },
       { name: "Es Kelapa Muda", price: 15000 },
     ],
     reviews_data: [
-      { name: "Budi S.", rating: 5, text: "Tempatnya nyaman, pemandangan bagus, ikan bakarnya mantap!" },
-      { name: "Citra L.", rating: 4, text: "Cocok buat kumpul keluarga, harga standar." },
+      { name: "Budi S.", rating: 5, text: "Tempatnya nyaman, pemandangan bagus, ikan bakarnya mantap!", text_en: "Comfortable place, great view, the grilled fish is amazing!" },
+      { name: "Citra L.", rating: 4, text: "Cocok buat kumpul keluarga, harga standar.", text_en: "Good for family gatherings, standard prices." },
     ],
   },
   {
     id: 2,
     name: "Bagi Kopi",
     category: "Kuliner",
-    description:
-      "Coffee shop modern yang nyaman untuk WFC (Work From Cafe) atau nongkrong.",
+    description: "Coffee shop modern yang nyaman untuk WFC (Work From Cafe) atau nongkrong.",
+    description_en: "Modern coffee shop comfortable for WFC (Work From Cafe) or hanging out.",
     address: "Jl. Mandor Munding, RT.4/RW.1, Setu, Cipayung, Jakarta Timur, 13880",
     gallery: [
       "/UMKM/bagi kopi/1.jpg", "/UMKM/bagi kopi/2.jpg", "/UMKM/bagi kopi/3.jpg",
@@ -62,6 +84,7 @@ export const umkmData: UmkmData[] = [
     rating: 4.7,
     reviews: 180,
     promo: "Gratis Croissant (min. beli 2 kopi)",
+    promo_en: "Free Croissant (min. buy 2 coffees)",
     menu: [
       { name: "Kopi Susu Gula Aren", price: 22000 },
       { name: "Americano", price: 20000 },
@@ -69,16 +92,16 @@ export const umkmData: UmkmData[] = [
       { name: "Croissant Cokelat", price: 18000 },
     ],
     reviews_data: [
-      { name: "Rina A.", rating: 5, text: "Kopinya enak, tempatnya cozy banget buat nugas!" },
-      { name: "Dito M.", rating: 4, text: "Matcha-nya mantap, parkiran agak susah." },
+      { name: "Rina A.", rating: 5, text: "Kopinya enak, tempatnya cozy banget buat nugas!", text_en: "Good coffee, very cozy place for working!" },
+      { name: "Dito M.", rating: 4, text: "Matcha-nya mantap, parkiran agak susah.", text_en: "Matcha is great, parking is a bit difficult." },
     ],
   },
   {
     id: 3,
     name: "Walungan Rasa",
     category: "Kuliner",
-    description:
-      "Restoran khas Sunda dengan saung di atas kolam ikan, cocok untuk keluarga.",
+    description: "Restoran khas Sunda dengan saung di atas kolam ikan, cocok untuk keluarga.",
+    description_en: "Sundanese restaurant with gazebos over a fish pond, perfect for families.",
     address: "Jl. Bambu Apus Raya No.64, RT.4/RW.3, Bambu Apus, Kec. Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/walungan/1.jpg", "/UMKM/walungan/2.jpg", "/UMKM/walungan/3.jpg",
@@ -88,6 +111,7 @@ export const umkmData: UmkmData[] = [
     rating: 4.6,
     reviews: 215,
     promo: "Paket Nasi Liwet 4 Orang",
+    promo_en: "Liwet Rice Package for 4",
     menu: [
       { name: "Gurame Bakar", price: 95000 },
       { name: "Nasi Liwet Komplit", price: 150000 },
@@ -95,16 +119,16 @@ export const umkmData: UmkmData[] = [
       { name: "Ayam Goreng Lengkuas", price: 28000 },
     ],
     reviews_data: [
-      { name: "Keluarga Budi", rating: 5, text: "Suasananya adem banget, makan di saung. Guramenya enak!" },
-      { name: "Arini L.", rating: 4, text: "Tempat yang pas buat makan keluarga besar, pelayanannya ramah." },
+      { name: "Keluarga Budi", rating: 5, text: "Suasananya adem banget, makan di saung. Guramenya enak!", text_en: "Very cool atmosphere, eating in a gazebo. The carp is delicious!" },
+      { name: "Arini L.", rating: 4, text: "Tempat yang pas buat makan keluarga besar, pelayanannya ramah.", text_en: "Perfect place for big family dinners, friendly service." },
     ],
   },
   {
     id: 4,
     name: "Druma Cafe",
     category: "Kuliner",
-    description:
-      "Cafe industrial luas dengan area indoor/outdoor teduh, cocok untuk WFC atau nongkrong.",
+    description: "Cafe industrial luas dengan area indoor/outdoor teduh, cocok untuk WFC atau nongkrong.",
+    description_en: "Spacious industrial cafe with shady indoor/outdoor areas, suitable for WFC or hanging out.",
     address: "Jl. Bina Marga No.21, RT.5/RW.5, Ceger, Kec. Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/druma/1.jpg", "/UMKM/druma/2.jpg", "/UMKM/druma/3.jpg",
@@ -114,6 +138,7 @@ export const umkmData: UmkmData[] = [
     rating: 4.5,
     reviews: 320,
     promo: "Diskon 20% Kopi (Weekday)",
+    promo_en: "20% Off Coffee (Weekdays)",
     menu: [
       { name: "Kopi Susu Gula Aren", price: 24000 },
       { name: "Americano", price: 23000 },
@@ -121,16 +146,16 @@ export const umkmData: UmkmData[] = [
       { name: "Donat Gula", price: 15000 },
     ],
     reviews_data: [
-      { name: "Andi F.", rating: 5, text: "Tempatnya luas banget dan arsitekturnya keren. Kopi enak, wifi kenceng, pas buat kerja." },
-      { name: "Siska", rating: 4, text: "Suka sama area outdoor-nya, adem banyak pohon. Makanannya lumayan, donatnya wajib coba." },
+      { name: "Andi F.", rating: 5, text: "Tempatnya luas banget dan arsitekturnya keren. Kopi enak, wifi kenceng, pas buat kerja.", text_en: "Very spacious place with cool architecture. Good coffee, fast wifi, perfect for work." },
+      { name: "Siska", rating: 4, text: "Suka sama area outdoor-nya, adem banyak pohon. Makanannya lumayan, donatnya wajib coba.", text_en: "Love the outdoor area, cool with many trees. Food is decent, must try the donuts." },
     ],
   },
   {
     id: 5,
     name: "Pecel Lele Cak Syam",
     category: "Kuliner",
-    description:
-      "Warung pecel lele kaki lima populer di area Pagelarang, Setu Cipayung.",
+    description: "Warung pecel lele kaki lima populer di area Pagelarang, Setu Cipayung.",
+    description_en: "Popular street food Pecel Lele stall in the Pagelarang area, Setu Cipayung.",
     address: "Jl. Pagelarang No. 27, Setu, Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/cak syam/0.jpeg", "/UMKM/cak syam/2.jpg", "/UMKM/cak syam/3.jpg",
@@ -139,23 +164,22 @@ export const umkmData: UmkmData[] = [
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.685007766503!2d106.91869007499108!3d-6.305052293684155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6992afcce14f3f%3A0xf2faa900070da904!2sPecel%20Lele%20Cak%20Syam!5e0!3m2!1sen!2sid!4v1761746017652!5m2!1sen!2sid",
     rating: 4.4,
     reviews: 87,
-    // Tidak ada promo
     menu: [
       { name: "Pecel Lele + Nasi", price: 18000 },
       { name: "Ayam Goreng + Nasi", price: 20000 },
       { name: "Soto Ayam Lamongan", price: 15000 },
     ],
     reviews_data: [
-      { name: "Bambang S.", rating: 4, text: "Lelenya garing, sambelnya pas." },
-      { name: "Susi H.", rating: 4, text: "Harga merakyat, rasa oke." },
+      { name: "Bambang S.", rating: 4, text: "Lelenya garing, sambelnya pas.", text_en: "Catfish is crispy, chili sauce is just right." },
+      { name: "Susi H.", rating: 4, text: "Harga merakyat, rasa oke.", text_en: "Affordable prices, okay taste." },
     ],
   },
   {
     id: 6,
     name: "SEATAP Tea and Sky",
     category: "Kuliner",
-    description:
-      "Restoran & cafe kekinian dengan konsep interior tanaman yang rimbun dan Instagramable.",
+    description: "Restoran & cafe kekinian dengan konsep interior tanaman yang rimbun dan Instagramable.",
+    description_en: "Trendy restaurant & cafe with a lush, Instagramable plant interior concept.",
     address: "Jl. Raya Mabes Hankam No.36, Bambu Apus, Kec. Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/seatap/1.jpg", "/UMKM/seatap/2.jpg", "/UMKM/seatap/3.jpg",
@@ -165,6 +189,7 @@ export const umkmData: UmkmData[] = [
     rating: 4.6,
     reviews: 420,
     promo: "Diskon 15% Minuman Teh Premium",
+    promo_en: "15% Off Premium Tea Drinks",
     menu: [
       { name: "Ice SEATAP Aren (Kopi Susu)", price: 31250 },
       { name: "Nasi Wagyu Sambal Matah", price: 56250 },
@@ -172,18 +197,18 @@ export const umkmData: UmkmData[] = [
       { name: "Beef Burger", price: 40000 },
     ],
     reviews_data: [
-      { name: "Clara S.", rating: 5, text: "Tempatnya cantik banget buat foto-foto, nuansa hijau bikin adem. Makanannya juga enak!" },
-      { name: "Reza P.", rating: 4, text: "Pilihan teh-nya unik dan enak. Cocok buat santai sore." },
+      { name: "Clara S.", rating: 5, text: "Tempatnya cantik banget buat foto-foto, nuansa hijau bikin adem. Makanannya juga enak!", text_en: "Beautiful place for photos, green vibes are cooling. Food is good too!" },
+      { name: "Reza P.", rating: 4, text: "Pilihan teh-nya unik dan enak. Cocok buat santai sore.", text_en: "Unique and tasty tea selection. Perfect for an afternoon chill." },
     ],
   },
 
-  // Kategori: Fashion (6)
+  // === Kategori: Fashion ===
   {
     id: 7,
     name: "Restu Anggraini",
     category: "Fashion",
-    description:
-      "Butik desainer busana muslim modern (modest wear) wanita. Ada gamis dan tunik.",
+    description: "Butik desainer busana muslim modern (modest wear) wanita. Ada gamis dan tunik.",
+    description_en: "Modern Muslim women's modest wear designer boutique. Offering gamis and tunics.",
     address: "Jl. Bambu Hitam No. 20, Bambu Apus, Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/RA/1.jpg", "/UMKM/RA/2.jpg", "/UMKM/RA/3.jpg"
@@ -192,13 +217,14 @@ export const umkmData: UmkmData[] = [
     rating: 4.7,
     reviews: 134,
     promo: "Diskon 15% Member Baru",
+    promo_en: "15% Discount for New Members",
     menu: [
       { name: "Gamis Series A", price: 350000 },
       { name: "Tunik Series B", price: 250000 },
     ],
     reviews_data: [
-      { name: "Nur A.", rating: 5, text: "Desainnya elegan, bahannya adem." },
-      { name: "Fatimah Z.", rating: 5, text: "Pelayanan sangat baik." },
+      { name: "Nur A.", rating: 5, text: "Desainnya elegan, bahannya adem.", text_en: "Elegant design, cool fabric." },
+      { name: "Fatimah Z.", rating: 5, text: "Pelayanan sangat baik.", text_en: "Excellent service." },
     ],
   },
   {
@@ -206,6 +232,7 @@ export const umkmData: UmkmData[] = [
     name: "HEYBEB Factory Outlet",
     category: "Fashion",
     description: "Factory outlet pakaian branded sisa ekspor untuk wanita, pria, dan anak-anak.",
+    description_en: "Factory outlet for branded export surplus clothing for women, men, and children.",
     address: "Ruko Puri Cilangkap, Jl. Assyafi'iyah No.221 1, RT.1/RW.5, Cilangkap, Kec. Cipayung, Kota Jakarta Timur",
     gallery: [
       "/UMKM/HEYBEB/1.jpg", "/UMKM/HEYBEB/2.jpg", "/UMKM/HEYBEB/3.jpg"
@@ -213,22 +240,21 @@ export const umkmData: UmkmData[] = [
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63447.160543929036!2d106.8596702986726!3d-6.336028966392463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ed5c628f9bc3%3A0x1d1a6edd0cfa24e2!2sHeybeb%20Factory%20Outlet!5e0!3m2!1sid!2sid!4v1761657570538!5m2!1sid!2sid", 
     rating: 4.5,
     reviews: 167,
-    // Tidak ada promo
     menu: [
         { name: "Kaos Pria Branded", price: 75000 },
         { name: "Dress Anak Sisa Ekspor", price: 60000 },
     ],
     reviews_data: [
-      { name: "Sinta K.", rating: 5, text: "Banyak pilihan, harga miring." },
-      { name: "Dina M.", rating: 4, text: "Harus teliti pilih barangnya." },
+      { name: "Sinta K.", rating: 5, text: "Banyak pilihan, harga miring.", text_en: "Lots of choices, low prices." },
+      { name: "Dina M.", rating: 4, text: "Harus teliti pilih barangnya.", text_en: "Need to check items carefully." },
     ],
   },
   {
     id: 9,
     name: "Agam Tailor",
     category: "Fashion",
-    description:
-      "Jasa penjahit (tailor) pembuatan dan permak pakaian pria (kemeja, celana, dan jas).",
+    description: "Jasa penjahit (tailor) pembuatan dan permak pakaian pria (kemeja, celana, dan jas).",
+    description_en: "Tailor service for making and altering men's clothing (shirts, trousers, and suits).",
     address: "Jl. Cipayung RT 003 RW 003 No 10 Kel Setu Kec Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/agam/1.jpg", "/UMKM/agam/2.jpg", "/UMKM/agam/3.jpg"
@@ -236,22 +262,21 @@ export const umkmData: UmkmData[] = [
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126899.36757139757!2d106.82895975302233!3d-6.315474721378141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ed4aed3c3f57%3A0xb88ef3c98a12c97b!2sAgam%20Tailor!5e0!3m2!1sid!2sid!4v1761658409281!5m2!1sid!2sid",
     rating: 4.8,
     reviews: 89,
-    // Tidak ada promo
     menu: [
         { name: "Jahit Kemeja Custom", price: 150000 },
         { name: "Permak Celana", price: 30000 },
     ],
     reviews_data: [
-      { name: "Hendra W.", rating: 5, text: "Jahitannya rapi banget, pas di badan." },
-      { name: "Bambang I.", rating: 5, text: "Pengerjaan cepat dan hasilnya bagus." },
+      { name: "Hendra W.", rating: 5, text: "Jahitannya rapi banget, pas di badan.", text_en: "Very neat stitching, fits perfectly." },
+      { name: "Bambang I.", rating: 5, text: "Pengerjaan cepat dan hasilnya bagus.", text_en: "Fast work and good results." },
     ],
   },
   {
     id: 10,
     name: "Flaneliajasmine",
     category: "Fashion",
-    description:
-      "UMKM busana muslim modern (gamis, tunik, dan hijab) online dan offline.",
+    description: "UMKM busana muslim modern (gamis, tunik, dan hijab) online dan offline.",
+    description_en: "Online and offline MSME for modern Muslim fashion (gamis, tunic, and hijab).",
     address: "Djimbo RT 01 RW 03 NO 61 Bambu Apus Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/Flaneliajasmine/1.jpg", "/UMKM/Flaneliajasmine/2.jpg", "/UMKM/Flaneliajasmine/3.jpg"
@@ -260,45 +285,44 @@ export const umkmData: UmkmData[] = [
     rating: 4.6,
     reviews: 145,
     promo: "Gratis Ongkir Jabodetabek",
+    promo_en: "Free Shipping Jabodetabek",
     menu: [
         { name: "Set Gamis & Khimar", price: 300000 },
         { name: "Pashmina Instan", price: 50000 },
     ],
     reviews_data: [
-      { name: "Ayu R.", rating: 5, text: "Modelnya simpel tapi cantik, bahan nyaman." },
-      { name: "Lina S.", rating: 4, text: "Pengiriman standar, barang sesuai foto." },
+      { name: "Ayu R.", rating: 5, text: "Modelnya simpel tapi cantik, bahan nyaman.", text_en: "Simple but pretty model, comfortable fabric." },
+      { name: "Lina S.", rating: 4, text: "Pengiriman standar, barang sesuai foto.", text_en: "Standard delivery, item matches the photo." },
     ],
   },
   {
     id: 11,
     name: "Kaski Atelier",
     category: "Fashion",
-    description:
-      "Toko fashion muslimah (gamis, tunik, dan hijab) dengan desain modern dan syar'i.",
-    address: "Jl. Kp. Ratu Jaya No.46, RT.4/RW.5, Ratu Jaya, Kec. Cipayung, Kota Depok", // Ini Depok, tapi dekat
+    description: "Toko fashion muslimah (gamis, tunik, dan hijab) dengan desain modern dan syar'i.",
+    description_en: "Muslimah fashion shop (gamis, tunic, and hijab) with modern and syar'i designs.",
+    address: "Jl. Kp. Ratu Jaya No.46, RT.4/RW.5, Ratu Jaya, Kec. Cipayung, Kota Depok", 
     gallery: [
       "/UMKM/Kaski Atelier/1.jpg", "/UMKM/Kaski Atelier/2.jpg", "/UMKM/Kaski Atelier/3.jpg"
     ],
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.8309647996134!2d106.8153365!3d-6.4157604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e97de0e039e5%3A0xbe63063b60305c49!2sKaski!5e0!3m2!1sid!2sid!4v1761662042594!5m2!1sid!2sid", 
-
     rating: 4.7,
     reviews: 156,
-    // Tidak ada promo
     menu: [
       { name: "Gamis Ceruti Premium", price: 280000 },
       { name: "Tunik Katun Rayon", price: 150000 },
     ],
     reviews_data: [
-      { name: "Riska A.", rating: 5, text: "Model gamisnya cantik-cantik, bahannya adem banget." },
-      { name: "Yulia N.", rating: 4, text: "Pilihan hijab motifnya banyak, harga standar." },
+      { name: "Riska A.", rating: 5, text: "Model gamisnya cantik-cantik, bahannya adem banget.", text_en: "Beautiful gamis models, very cool fabric." },
+      { name: "Yulia N.", rating: 4, text: "Pilihan hijab motifnya banyak, harga standar.", text_en: "Many motif hijab choices, standard price." },
     ],
   },
   {
     id: 12,
     name: "Nita Fashion",
     category: "Fashion",
-    description:
-      "Butik lokal pakaian kasual dan formal wanita. Koleksi blouse, kemeja, celana, dan rok terbaru.",
+    description: "Butik lokal pakaian kasual dan formal wanita. Koleksi blouse, kemeja, celana, dan rok terbaru.",
+    description_en: "Local boutique for casual and formal women's wear. Latest collection of blouses, shirts, pants, and skirts.",
     address: "Jl. Pagelarang No.10, RT.2/RW.1, Setu, Kec. Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/Nita Fashion/1.jpg", "/UMKM/Nita Fashion/2.jpg", "/UMKM/Nita Fashion/3.jpg"
@@ -307,23 +331,24 @@ export const umkmData: UmkmData[] = [
     rating: 4.4,
     reviews: 98,
     promo: "Diskon 25% Min. Belanja 500rb",
+    promo_en: "25% Off Min. Purchase 500k",
     menu: [
       { name: "Blouse Wanita Katun", price: 120000 },
       { name: "Celana Kulot Linen", price: 175000 },
     ],
     reviews_data: [
-      { name: "Rendi H.", rating: 4, text: "Pilihan baju kantornya cukup banyak." },
-      { name: "Anita P.", rating: 4, text: "Model blousenya lumayan update." },
+      { name: "Rendi H.", rating: 4, text: "Pilihan baju kantornya cukup banyak.", text_en: "Quite a few choices for office wear." },
+      { name: "Anita P.", rating: 4, text: "Model blousenya lumayan update.", text_en: "Blouse models are quite updated." },
     ],
   },
 
-  // Kategori: Jasa & Lainnya (6)
+  // === Kategori: Jasa & Lainnya ===
   {
     id: 13,
     name: "TJM Auto Care",
     category: "Jasa & Lainnya",
-    description:
-      "Bengkel mobil modern: servis rutin, ganti oli, spooring, balancing, perbaikan mesin.",
+    description: "Bengkel mobil modern: servis rutin, ganti oli, spooring, balancing, perbaikan mesin.",
+    description_en: "Modern car workshop: routine service, oil change, spooring, balancing, engine repair.",
     address: "Jl. Setu Cipayung No.15, Cilangkap, Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/TJM Auto Care/1.jpg", "/UMKM/TJM Auto Care/2.jpg", "/UMKM/TJM Auto Care/3.jpg"
@@ -332,21 +357,22 @@ export const umkmData: UmkmData[] = [
     rating: 4.8,
     reviews: 178,
     promo: "Gratis Cek Kaki-kaki",
+    promo_en: "Free Undercarriage Check",
     menu: [
         { name: "Paket Servis Berkala", price: 450000 },
         { name: "Ganti Oli + Filter", price: 300000 },
     ],
     reviews_data: [
-      { name: "Pak Surya", rating: 5, text: "Montirnya handal, penjelasan detail." },
-      { name: "Ibu Ratna", rating: 5, text: "Tempat tunggu nyaman, pengerjaan cepat." },
+      { name: "Pak Surya", rating: 5, text: "Montirnya handal, penjelasan detail.", text_en: "Mechanics are reliable, detailed explanation." },
+      { name: "Ibu Ratna", rating: 5, text: "Tempat tunggu nyaman, pengerjaan cepat.", text_en: "Comfortable waiting room, fast work." },
     ],
   },
   {
     id: 14,
     name: "Planet Ban",
     category: "Jasa & Lainnya",
-    description:
-      "Toko ritel & jasa: ban motor, ganti oli, servis ringan motor.",
+    description: "Toko ritel & jasa: ban motor, ganti oli, servis ringan motor.",
+    description_en: "Retail & service shop: motorcycle tires, oil change, light motorcycle service.",
     address: "Jln. Cipayung Setu, Cilangkap, Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/Planet Ban Cipayung Setu/1.jpg", "/UMKM/Planet Ban Cipayung Setu/2.jpg", "/UMKM/Planet Ban Cipayung Setu/3.jpg"
@@ -354,22 +380,21 @@ export const umkmData: UmkmData[] = [
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31724.281147953032!2d106.85024321079256!3d-6.324618553896057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ed3d4ca262dd%3A0xa6095fae44dd42b6!2sPlanet%20Ban%20Cipayung!5e0!3m2!1sid!2sid!4v1761668114038!5m2!1sid!2sid", 
     rating: 4.6,
     reviews: 134,
-    // Tidak ada promo
     menu: [
         { name: "Ban Tubeless Matic", price: 180000 },
         { name: "Oli Mesin X-Ten", price: 55000 },
     ],
     reviews_data: [
-      { name: "Budi S.", rating: 5, text: "Pilihan ban lengkap, pemasangan cepat." },
-      { name: "Hendra K.", rating: 4, text: "Stafnya ramah dan informatif." },
+      { name: "Budi S.", rating: 5, text: "Pilihan ban lengkap, pemasangan cepat.", text_en: "Complete tire selection, fast installation." },
+      { name: "Hendra K.", rating: 4, text: "Stafnya ramah dan informatif.", text_en: "Staff is friendly and informative." },
     ],
   },
   {
     id: 15,
     name: "Swan Laundry",
     category: "Jasa & Lainnya",
-    description:
-      "Jasa penatu (laundry) kiloan dan satuan: cuci, kering, setrika.",
+    description: "Jasa penatu (laundry) kiloan dan satuan: cuci, kering, setrika.",
+    description_en: "Laundry service by kg and piece: wash, dry, iron.",
     address: "Jl. Setu Cipayung, No.20A, Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/Swan Laundry Cipayung/1.jpg", "/UMKM/Swan Laundry Cipayung/2.jpg", "/UMKM/Swan Laundry Cipayung/3.jpg"
@@ -378,21 +403,22 @@ export const umkmData: UmkmData[] = [
     rating: 4.7,
     reviews: 156,
     promo: "Cuci 5kg Gratis 1kg",
+    promo_en: "Wash 5kg Get 1kg Free",
     menu: [
         { name: "Cuci Kering Setrika (per kg)", price: 7000 },
         { name: "Cuci Bed Cover (Queen)", price: 25000 },
     ],
     reviews_data: [
-      { name: "Ibu Indah", rating: 5, text: "Bersih, wangi, dan tepat waktu." },
-      { name: "Mas Doni", rating: 4, text: "Harga standar, hasil lumayan." },
+      { name: "Ibu Indah", rating: 5, text: "Bersih, wangi, dan tepat waktu.", text_en: "Clean, fragrant, and on time." },
+      { name: "Mas Doni", rating: 4, text: "Harga standar, hasil lumayan.", text_en: "Standard price, decent results." },
     ],
   },
   {
     id: 16,
     name: "Toko Sembako Fano",
     category: "Jasa & Lainnya",
-    description:
-      "Toko kelontong (perdagangan) menjual kebutuhan pokok harian (sembako).",
+    description: "Toko kelontong (perdagangan) menjual kebutuhan pokok harian (sembako).",
+    description_en: "Grocery store selling daily basic needs (sembako).",
     address: "Jl. Raya Setu Cipayung, No. 1A, RT 1 RW 4, Cipayung",
     gallery: [
       "/UMKM/Toko Sembako Fano/1.jpg", "/UMKM/Toko Sembako Fano/2.jpg", "/UMKM/Toko Sembako Fano/3.jpg"
@@ -400,11 +426,10 @@ export const umkmData: UmkmData[] = [
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.5274116015626!2d106.90214692499119!3d-6.325626393663885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ed302d9095e9%3A0x4d6840c63532073!2sToko%20Fano!5e0!3m2!1sid!2sid!4v1761668446720!5m2!1sid!2sid", 
     rating: 4.5,
     reviews: 112,
-    // Tidak ada promo
-    menu: [], // Menu tidak relevan
+    menu: [],
     reviews_data: [
-      { name: "Pak Bams", rating: 4, text: "Cukup lengkap untuk kebutuhan sehari-hari." },
-      { name: "Ibu Ani", rating: 5, text: "Pelayanan ramah, dekat rumah." },
+      { name: "Pak Bams", rating: 4, text: "Cukup lengkap untuk kebutuhan sehari-hari.", text_en: "Complete enough for daily needs." },
+      { name: "Ibu Ani", rating: 5, text: "Pelayanan ramah, dekat rumah.", text_en: "Friendly service, close to home." },
     ],
   },
   {
@@ -412,6 +437,7 @@ export const umkmData: UmkmData[] = [
     name: "Perahu Bebek Setu",
     category: "Jasa & Lainnya",
     description: "Jasa rekreasi menyewakan perahu bebek keliling Danau Setu.",
+    description_en: "Recreation service renting paddle boats around Lake Setu.",
     address: "Area Ekowisata Waduk Setu, Setu, Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/Penyewaan Perahu Bebek Waduk Setu/1.jpg", "/UMKM/Penyewaan Perahu Bebek Waduk Setu/2.jpg", "/UMKM/Penyewaan Perahu Bebek Waduk Setu/3.jpg"
@@ -419,22 +445,21 @@ export const umkmData: UmkmData[] = [
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.6400765913604!2d106.91230612499113!3d-6.310924843678374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69934f830cd31f%3A0xce4be07f2bf80267!2sWaduk%20Setu%20Cipayung!5e0!3m2!1sen!2sid!4v1761745662966!5m2!1sen!2sid",
     rating: 4.8,
     reviews: 189,
-    // Tidak ada promo
     menu: [
         { name: "Sewa 30 Menit", price: 25000 },
         { name: "Sewa 1 Jam", price: 40000 },
     ],
     reviews_data: [
-      { name: "Keluarga Rahman", rating: 5, text: "Anak-anak senang banget naik perahu bebek." },
-      { name: "Pasangan Muda", rating: 4, text: "Tempat rekreasi murah meriah." },
+      { name: "Keluarga Rahman", rating: 5, text: "Anak-anak senang banget naik perahu bebek.", text_en: "Kids love riding the paddle boats." },
+      { name: "Pasangan Muda", rating: 4, text: "Tempat rekreasi murah meriah.", text_en: "Cheap and cheerful recreation place." },
     ],
   },
   {
     id: 18,
     name: "Terdekat Self Photo",
     category: "Jasa & Lainnya",
-    description:
-      "Studio foto mandiri (self-photo) kekinian. Ambil foto sepuasnya dengan peralatan profesional.",
+    description: "Studio foto mandiri (self-photo) kekinian. Ambil foto sepuasnya dengan peralatan profesional.",
+    description_en: "Trendy self-photo studio. Take unlimited photos with professional equipment.",
     address: "Jl. Cipayung Setu No. 200, Cipayung, Jakarta Timur",
     gallery: [
       "/UMKM/Terdekat Self Photo Studio/1.jpg", "/UMKM/Terdekat Self Photo Studio/2.jpg", "/UMKM/Terdekat Self Photo Studio/3.jpg"
@@ -443,34 +468,14 @@ export const umkmData: UmkmData[] = [
     rating: 4.9,
     reviews: 201,
     promo: "Paket Pelajar - Diskon 20%",
+    promo_en: "Student Package - 20% Off",
     menu: [
       { name: "Paket Sesi 15 Menit", price: 80000 },
       { name: "Paket Sesi 25 Menit", price: 120000 },
     ],
     reviews_data: [
-      { name: "Rani & Doni", rating: 5, text: "Seru banget foto berdua! Nggak canggung karena nggak ada fotografer." },
-      { name: "Geng Ceria", rating: 5, text: "Tempatnya oke, propertinya lucu-lucu." },
+      { name: "Rani & Doni", rating: 5, text: "Seru banget foto berdua! Nggak canggung karena nggak ada fotografer.", text_en: "So fun taking photos together! Not awkward because there's no photographer." },
+      { name: "Geng Ceria", rating: 5, text: "Tempatnya oke, propertinya lucu-lucu.", text_en: "Place is okay, props are cute." },
     ],
   },
 ];
-
-// 3. EKSPOR TIPE KATEGORI YANG BENAR
-export const categories: UmkmCategory[] = ["Kuliner", "Fashion", "Jasa & Lainnya"];
-
-// 4. EKSPOR WARNA KATEGORI DENGAN TIPE YANG BENAR
-export const categoryColors: Record<UmkmCategory, { from: string; to: string; badge: string }> = {
-  Kuliner: { from: "from-green-400", to: "to-green-600", badge: "bg-gradient-to-r from-green-400 to-green-600" },
-  Fashion: { from: "from-pink-400", to: "to-purple-500", badge: "bg-pink-500" },
-  "Jasa & Lainnya": { from: "from-blue-400", to: "to-cyan-500", badge: "bg-blue-500" },
-};
-
-/*
-CATATAN PENTING UNTUK IMPORT:
-Karena file ini berada di `src/data/umkm.ts`, saat mengimpornya dari file
-lain di dalam `src/app/...`, gunakan path alias:
-
-import { umkmData, categories, categoryColors, UmkmData, UmkmCategory } from "@/data/umkm";
-
-JANGAN gunakan '/app' di path import untuk file data ini.
-Alias '@/' sudah menunjuk ke folder 'src/'.
-*/

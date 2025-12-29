@@ -1,71 +1,90 @@
-"use client" // 1. Menjadi Client Component
+"use client"
 
 import { Inter } from "next/font/google"
 import "./globals.css"
-import { useState, useEffect } from "react" // 2. Impor state dan effect
+import { useState } from "react"
 
-// 3. Impor semua komponen global Anda
+// Impor komponen-komponen
 import Navbar from "@/app/components/Navbar"
 import Footer from "@/app/components/Footer"
-import CustomPointer from "@/app/components/CustomPointer"
-import SplashScreen from "@/app/components/SplashScreen" // 4. Impor Splash Screen
-import { Toaster } from "sonner" // 5. Pastikan Toaster di-impor
+import CustomPointer from "@/app/components/CustomPointer" // Import ini harus dipakai
+import SplashScreen from "@/app/components/SplashScreen"
+import { Toaster } from "sonner"
+
+// Impor Context Bahasa
+import { LanguageProvider } from "@/app/context/LanguageContext"
+
+// Import Theme Provider
+import { ThemeProvider } from "@/app/components/ThemeProvider"
 
 const inter = Inter({ subsets: ["latin"] })
 
-// 6. HAPUS 'export const metadata' DAN 'import type { Metadata }'
-// Keduanya tidak bisa digunakan di Client Component.
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const [isSplashFinished, setIsSplashFinished] = useState(false)
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  // 7. Buat state untuk mengontrol loading (splash screen)
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    // 8. Atur timer untuk menyembunyikan splash screen
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 2500) // Tampilkan selama 2.5 detik (sesuaikan durasi)
-
-    return () => clearTimeout(timer) // Bersihkan timer
-  }, [])
+  const handleSplashFinished = () => {
+    setIsSplashFinished(true)
+  }
 
   return (
-    <html lang="id">
-      {/* Layout "sticky footer" (min-h-screen flex flex-col) 
-        dipindahkan dari <body> ke div wrapper KONTEN UTAMA di bawah.
-        Ini memperbaiki masalah "whitespace" di halaman Game.
-      */}
-      <body className={`${inter.className} bg-gray-50`}>
+    <html lang="id" suppressHydrationWarning>
+      {/* Warna background dark mode: slate-900 (Biru gelap, bukan hitam pekat) */}
+      <body className={`${inter.className} bg-gray-50 text-gray-900 dark:bg-slate-900 dark:text-gray-100 transition-colors duration-300 selection:bg-blue-500 selection:text-white`}>
         
-        {/* 9. Logika Tampilan Kondisional */}
-        {isLoading ? (
-          // Tampilkan Splash Screen saat loading
-          <SplashScreen onFinished={function (): void {
-            throw new Error("Function not implemented.")
-          } } />
-        ) : (
-          // Tampilkan konten utama setelah loading selesai
-          <div className="min-h-screen flex flex-col">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <LanguageProvider>
             
-            <Navbar />
-            
-            {/* 'flex-grow' akan mendorong Footer ke bawah */}
-            <main className="flex-grow">
-              {children}
-            </main>
-            
-            <Footer />
-            
-            {/* Toaster untuk notifikasi */}
-            <Toaster richColors position="top-right" />
+            {/* PERBAIKAN: Uncomment baris ini agar CustomPointer aktif secara global */}
             <CustomPointer />
-          </div>
+            
+            <Toaster richColors position="top-right" />
+
+            {!isSplashFinished ? (
+              <SplashScreen onFinished={handleSplashFinished} />
+            ) : (
+              <div className="min-h-screen flex flex-col animate-fade-in-layout">
+                
+                <Navbar />
+                
+                <main className="flex-grow">
+                  {children}
+                </main>
+                
+                <Footer />
+                
+              </div>
+            )}
+
+          </LanguageProvider>
+        </ThemeProvider>
+
+        <style jsx global>{`
+          @keyframes fade-in-layout {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          .animate-fade-in-layout {
+            animation: fade-in-layout 0.8s ease-out forwards;
+          }
           
-        )}
+          /* Scrollbar Custom */
+          ::-webkit-scrollbar {
+            width: 10px;
+          }
+          ::-webkit-scrollbar-track {
+            background: transparent;
+          }
+          ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 5px;
+          }
+          .dark ::-webkit-scrollbar-thumb {
+            background: #475569;
+          }
+          .dark ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+          }
+        `}</style>
 
       </body>
     </html>
